@@ -1,0 +1,46 @@
+'use client'
+
+import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X, Headset } from "lucide-react";
+import { useSidebar } from "@/context/userSidebar";
+
+export default function Navbar() {
+  const {
+    setIsSidebarOpen,
+    isSidebarOpen,
+    active,
+    setActive,
+    isLeaderboardOpen,
+    setIsLeaderboardOpen,
+    isGeneralOpen,
+    setIsGeneralOpen,
+    isSubscription,
+    setIsSubscription,
+  } = useSidebar();
+  return (
+    <nav className="fixed top-0 left-0 w-full bg-[#191822] px-4 sm:px-8 py-2 flex items-center justify-between z-50">
+     <div className="hidden md:block"></div>
+     <div className="flex items-center gap-2">
+          <img
+            src={`https://cdn.discordapp.com/avatars/1141791569574375514/9238922f80daa0b9f06855e1d5700993.png?size=1024`}
+            alt="Profile"
+            draggable={false}
+            className="rounded-md w-6 h-6 object-cover select-none"
+          />
+          <span className="text-white text-md font-bold tajawal select-none">mazinx</span>
+      </div>
+        <div className="block">
+        <div
+      id="nav-icon3"
+      className={`${isSidebarOpen ? "open" : ""} block md:hidden`}
+      onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+        </div>
+    </nav>
+  );
+}

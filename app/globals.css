@@ -20,7 +20,86 @@
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: #191822;
+}
+
+
+
+.tfont {
+  font-family: "Vazirmatn", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.tajawal {
+  font-family: "Tajawal", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 16px;
+  height: 12px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #1a1a1a;
+  border-radius: 12px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #555;
+  border-radius: 5px;
+  border: 3px solid #1a1a1a;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: #777;
+}
+
+.hidden-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;   
+}
+
+.hidden-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+#nav-icon3 {
+  width: 25px;   /* العرض أصغر */
+  height: 20px;  /* الطول أصغر */
+  position: relative;
+  cursor: pointer;
+}
+
+#nav-icon3 span {
+  display: block;
+  position: absolute;
+  height: 2px;       /* الخط رفيع */
+  width: 100%;
+  background: white;
+  border-radius: 2px;
+  left: 0;
+  transition: all 0.25s ease-in-out;
+}
+
+#nav-icon3 span:nth-child(1) { top: 0px; }
+#nav-icon3 span:nth-child(2),
+#nav-icon3 span:nth-child(3) { top: 8px; }
+#nav-icon3 span:nth-child(4) { top: 16px; }
+
+/* حالة الفتح */
+#nav-icon3.open span:nth-child(1) {
+  top: 12px;
+  width: 0%;
+  left: 50%;
+}
+#nav-icon3.open span:nth-child(2) { transform: rotate(45deg); }
+#nav-icon3.open span:nth-child(3) { transform: rotate(-45deg); }
+#nav-icon3.open span:nth-child(4) {
+  top: 12px;
+  width: 0%;
+  left: 50%;
 }
