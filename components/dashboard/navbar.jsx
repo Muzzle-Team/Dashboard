@@ -22,10 +22,10 @@ export default function Navbar() {
      <div className="hidden md:block"></div>
      <div className="flex items-center gap-2">
           <img
-            src={`https://cdn.discordapp.com/avatars/1141791569574375514/9238922f80daa0b9f06855e1d5700993.png?size=1024`}
+            src={`https://cdn.discordapp.com/avatars/618078478755037185/dcaf14115dd138394fd69e6ee4741c73.png?size=1024`}
             alt="Profile"
             draggable={false}
-            className="rounded-md w-6 h-6 object-cover select-none"
+            className="rounded-md bg-indigo-700 w-6 h-6 object-cover select-none"
           />
           <span className="text-white text-md font-bold tajawal select-none">mazinx</span>
       </div>

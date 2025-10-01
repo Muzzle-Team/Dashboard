@@ -7,8 +7,9 @@ const SidebarContext = createContext();
 export const SidebarProvider = ({ children }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isGeneralOpen, setIsGeneralOpen] = useState(true);
-  const [isSubscription, setIsSubscription] = useState(true);
+  const [isStore, setIsStore] = useState(true);
   const [isLeaderboardOpen, setIsLeaderboardOpen] = useState(true);
+  const [isOthers, setIsOthers] = useState(true);
   const [active, setActive] = useState("overview");
 
   return (
@@ -22,8 +23,10 @@ export const SidebarProvider = ({ children }) => {
         setIsLeaderboardOpen,
         isGeneralOpen,
         setIsGeneralOpen,
-        isSubscription,
-        setIsSubscription,
+        isStore,
+        setIsStore,
+        isOthers,
+        setIsOthers
       }}
     >
       {children}
