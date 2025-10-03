@@ -200,7 +200,7 @@ const ConfettiPiece = ({ color, x, y }) => (
       <ConfettiCanvas show={showConfetti} />
 
         <div className={boxClasses}>
-
+ 
           {stage === "initial" && (
             <div onClick={handleClick} className="cursor-pointer flex flex-col items-center">
               <div className="flex justify-center group-hover:text-white text-[#4b41d8] transition-all duration-300">
