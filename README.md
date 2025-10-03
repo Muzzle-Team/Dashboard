@@ -3,5 +3,6 @@
 - Overview [✅]
 - Store [✅]
 - Daily [✅]
+- Premium []
 - Leaderboard []
 - Transactions []
