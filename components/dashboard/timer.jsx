@@ -1,21 +1,23 @@
 'use client'
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useSidebar } from "@/context/userSidebar";
-export default function CountdownTimer({ targetTimestamp }) {
 
+export default function CountdownTimer({ targetTimestamp }) {
   const [timeLeft, setTimeLeft] = useState(() =>
     targetTimestamp ? Math.max(targetTimestamp - Date.now(), 0) : 0
   );
 
   useEffect(() => {
     if (!targetTimestamp) return;
-
-    const interval = setInterval(() => {
+    
+    const updateTime = () => {
       const diff = targetTimestamp - Date.now();
       setTimeLeft(diff > 0 ? diff : 0);
-    }, 1000);
-
+    };
+    
+    updateTime(); // Update immediately
+    const interval = setInterval(updateTime, 100); // تحديث كل 100ms بدلاً من 1000ms
+    
     return () => clearInterval(interval);
   }, [targetTimestamp]);
 
@@ -31,31 +33,34 @@ export default function CountdownTimer({ targetTimestamp }) {
 
   const numberVariant = {
     initial: { y: -10, opacity: 0 },
-    animate: { y: 0, opacity: 1, transition: { duration: 0.3 } },
-    exit: { y: 10, opacity: 0, transition: { duration: 0.3 } },
+    animate: { y: 0, opacity: 1, transition: { duration: 0.15 } }, // قلل المدة
+    exit: { y: 10, opacity: 0, transition: { duration: 0.15 } }, // قلل المدة
   };
 
   const renderDigits = (digits) =>
     digits.map((digit, index) => (
-      <AnimatePresence mode="popLayout" key={index}>
-        <motion.span
-          key={digit + index}
-          variants={numberVariant}
-          initial="initial"
-          animate="animate"
-          exit="exit"
-        >
-          {digit}
-        </motion.span>
-      </AnimatePresence>
+      <div key={`pos-${index}`} className="inline-block w-[1ch]"> {/* width ثابت */}
+        <AnimatePresence mode="wait" initial={false}>
+          <motion.span
+            key={digit}
+            variants={numberVariant}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            className="inline-block"
+          >
+            {digit}
+          </motion.span>
+        </AnimatePresence>
+      </div>
     ));
 
   return (
     <div className="text-md select-none z-10 -translate-y-6 flex space-x-1">
       {renderDigits(hourDigits)}
-      :
+      <span>:</span>
       {renderDigits(minuteDigits)}
-      :
+      <span>:</span>
       {renderDigits(secondDigits)}
     </div>
   );

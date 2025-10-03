@@ -94,9 +94,8 @@ export default function Daily() {
     timeLeft,
     setTimeLeft
   } = useSidebar();
-
+  const [targetTimestamp] = useState(() => Date.now() + 24 * 60 * 60 * 1000);
   useEffect(() => {
-    const targetTimestamp = Date.now() + 24 * 60 * 60 * 1000;
 
     const interval = setInterval(() => {
       const remaining = targetTimestamp - Date.now();
@@ -109,7 +108,7 @@ export default function Daily() {
 
 
     return () => clearInterval(interval);
-  }, [stage, setStage]);
+  }, [stage, setStage, targetTimestamp]);
 
   const prevStageRef = useRef(stage);
 const [showConfetti, setShowConfetti] = useState(false);
@@ -185,18 +184,18 @@ const ConfettiPiece = ({ color, x, y }) => (
       <div className="flex justify-center">
         <p className="flex space-x-2">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="#5048b8" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1"><path strokeWidth="1.5" d="M2.5 12c0-4.478 0-6.718 1.391-8.109S7.521 2.5 12 2.5c4.478 0 6.718 0 8.109 1.391S21.5 7.521 21.5 12c0 4.478 0 6.718-1.391 8.109S16.479 21.5 12 21.5c-4.478 0-6.718 0-8.109-1.391S2.5 16.479 2.5 12m9.5 4v-4.5" /><path strokeWidth="1.8" d="M12 8.012v-.01" /></g></svg>
-          <span className="text-zinc-200 mt-0.5">You can claim up to 1500 corns </span>
+          <span className="text-zinc-200 mt-0.5">You can claim up to 1500 corns everyday. </span>
         </p>
       </div>
 
       <div className="flex justify-center">
         <p className="flex space-x-2">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="#5048b8" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1"><path strokeWidth="1.5" d="M2.5 12c0-4.478 0-6.718 1.391-8.109S7.521 2.5 12 2.5c4.478 0 6.718 0 8.109 1.391S21.5 7.521 21.5 12c0 4.478 0 6.718-1.391 8.109S16.479 21.5 12 21.5c-4.478 0-6.718 0-8.109-1.391S2.5 16.479 2.5 12m9.5 4v-4.5" /><path strokeWidth="1.8" d="M12 8.012v-.01" /></g></svg>
-          <span className="text-zinc-200 mt-0.5">Come back everyday to earn extra credits! </span>
+          <span className="text-zinc-200 mt-0.5">Come back everyday to earn corns!  </span>
         </p>
       </div> 
 
-      <div className="flex justify-center h-[33rem] relative">
+      <div className="flex justify-center h-[33rem] relative ">
       <ConfettiCanvas show={showConfetti} />
 
         <div className={boxClasses}>
@@ -238,7 +237,7 @@ const ConfettiPiece = ({ color, x, y }) => (
               </div>
               <div className=" flex justify-center items-center text-5xl font-extrabold  z-10 translate-y-6 md:-translate-y-6  space-x-2">
                 <svg xmlns="http://www.w3.org/2000/svg" className="-translate-y-7" width="50" height="50" viewBox="0 0 256 256"><g fill="#4b41d8"><path d="M216 136a88 88 0 1 1-88-88a88 88 0 0 1 88 88" opacity="0.2" /><path d="M128 40a96 96 0 1 0 96 96a96.11 96.11 0 0 0-96-96m0 176a80 80 0 1 1 80-80a80.09 80.09 0 0 1-80 80m45.66-125.66a8 8 0 0 1 0 11.32l-40 40a8 8 0 0 1-11.32-11.32l40-40a8 8 0 0 1 11.32 0M96 16a8 8 0 0 1 8-8h48a8 8 0 0 1 0 16h-48a8 8 0 0 1-8-8" /></g></svg>
-                <CountdownTimer targetTimestamp={Date.now() + 24 * 60 * 60 * 1000} />
+                <CountdownTimer targetTimestamp={targetTimestamp} />
 
               </div>
               <div className="text-[#736cdf] text-md font-extrabold translate-y-6 md:-translate-y-10  z-10">

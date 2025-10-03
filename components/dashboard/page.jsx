@@ -22,7 +22,8 @@ export default function Page({ children }) {
                 )}
                 <div className="px-5 md:px-[100px]  overflow-auto ml-0 md:ml-[15rem] pt-[60px] md:pt-[90px] ">
                     {children}
-</div>
-</div>
-</main>
-    )}
+                </div>
+            </div>
+        </main>
+    )
+}

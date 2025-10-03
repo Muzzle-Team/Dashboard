@@ -16,6 +16,7 @@ export async function POST(req) {
         // نرجع الرقم اليومي هنا
         const dailyNumber = Math.floor(Math.random() * 1000); // مثال: رقم عشوائي
         return new Response(JSON.stringify({ success: true, number: dailyNumber }), { status: 200 });
+       
       } else {
         return new Response(JSON.stringify({ success: false, error: data["error-codes"] }), { status: 200 });
       }
