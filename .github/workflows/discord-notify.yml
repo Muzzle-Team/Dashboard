@@ -9,7 +9,7 @@ jobs:
     steps:
       - name: Send Discord Notification
         env:
-          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+          DISCORD_WEBHOOK: "https://discord.com/api/webhooks/1423632532842348607/uOyYnGnD_JPMvn_fLC15O6A8-kTjnDQZCzTa2Z2fVo9CVMjeDWzfGajoQmv6w73hK0EA"
           COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
         run: |
           curl -X POST \
