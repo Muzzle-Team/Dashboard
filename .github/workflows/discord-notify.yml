@@ -44,8 +44,8 @@ jobs:
                 },
                 {
                   "name": "📊 Changes",
-                  "value": "📁 **${{ steps.stats.outputs.files }}** files\n✅ **+${{ steps.stats.outputs.additions }}** additions\n❌ **-${{ steps.stats.outputs.deletions }}** deletions",
-                  "inline": true
+                  "value": "\`\`\`diff\n+ ${{ steps.stats.outputs.additions }} additions\n- ${{ steps.stats.outputs.deletions }} deletions\n\`\`\`\n📁 ${{ steps.stats.outputs.files }} files changed",
+                  "inline": false
                 }
               ],
               "author": {
