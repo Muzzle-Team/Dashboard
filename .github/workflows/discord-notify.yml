@@ -51,7 +51,6 @@ jobs:
               "author": {
                 "name": "${{ github.event.head_commit.author.name }}",
                 "icon_url": "https://github.com/${{ github.actor }}.png"
-                "url": "https://github.com/${{ github.actor }}"
               },
               "thumbnail": {
                 "url": "https://cdn.discordapp.com/icons/1294072522219978802/12e48a18d32be277c7b1dc8a87ac00b9.webp?size=256"
