@@ -4,7 +4,7 @@ import { LogOut, LayoutDashboard, Sparkles } from "lucide-react"
 import { useSidebar } from "@/context/userSidebar";
 import { useState, useTransition, useEffect, useRef } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 export default function Sidebar() {
     const {
         setIsSidebarOpen,
@@ -18,20 +18,29 @@ export default function Sidebar() {
         isStore,
         setIsStore,
         isOthers,
-        setIsOthers
+        setIsOthers,
+        hasAnimated,
+        setHasAnimated
     } = useSidebar();
     const [hovered, setHovered] = useState(null);
     const [hoveredPosition, setHoveredPosition] = useState(0);
     const touchStartX = useRef(null);
     const touchEndX = useRef(null);
     const router = useRouter();
-    const items = Array.from({ length: 20 });
+    const items = [
+        { id: 1, name: "Marin Chan", members: 16, icon: "https://ui-avatars.com/api/?background=494d54&color=dbdcdd&size=128&name=MC" },
+        { id: 2, name: "One Piece", members: 120, icon: "https://ui-avatars.com/api/?background=494d54&color=dbdcdd&size=128&name=OP" },
+        { id: 3, name: "Anime Hub", members: 45, icon: "https://ui-avatars.com/api/?background=494d54&color=dbdcdd&size=128&name=AH" },
+        { id: 4, name: "Gaming Zone", members: 200, icon: "https://ui-avatars.com/api/?background=494d54&color=dbdcdd&size=128&name=GZ" },
+        { id: 5, name: "Cinema Club", members: 67, icon: "https://ui-avatars.com/api/?background=494d54&color=dbdcdd&size=128&name=CC" },
+    ];
+
+    const pathname = usePathname();
 
     useEffect(() => {
-        if (!router?.asPath) return;
+        if (!pathname) return;
 
-        const path = router.asPath;
-        const afterDashboard = path.split("/dashboard/")[1] || "";
+        const afterDashboard = pathname.split("/dashboard/")[1] || "";
 
         let newActive;
         if (!afterDashboard) {
@@ -45,7 +54,7 @@ export default function Sidebar() {
         }
 
         setActive(newActive);
-    }, [router?.asPath]);
+    }, [pathname]);
 
 
     const containerVariants = {
@@ -64,6 +73,10 @@ export default function Sidebar() {
         show: { opacity: 1, y: 0, transition: { duration: 0.3, ease: "easeOut" } }
     };
 
+
+    useEffect(() => {
+        setHasAnimated(true);
+    }, [setHasAnimated]);
 
     return (
         <div
@@ -88,7 +101,7 @@ export default function Sidebar() {
                     </div>
 
                     <img
-                        src="https://cdn.discordapp.com/avatars/618078478755037185/dcaf14115dd138394fd69e6ee4741c73.png?size=1024"
+                        src="https://cdn.discordapp.com/avatars/618078478755037185/243ab1914f7cbc7b67f0a9f3ee1a77f7.png?size=1024"
                         alt="Profile"
                         draggable={false}
                         className="w-14 h-14 rounded-[50%] bg-indigo-700 cursor-pointer hover:rounded-[35%] transition-all duration-300 select-none"
@@ -100,12 +113,13 @@ export default function Sidebar() {
                 <motion.div
                     className="flex flex-col gap-4 mb-12"
                     variants={containerVariants}
-                    initial="hidden"
-                    animate="show"
+                    initial={hasAnimated ? "show" : "hidden"}
+                    animate={hasAnimated ? "show" : "hidden"}
+
                 >
-                    {items.map((_, i) => (
+                    {items.map((item, i) => (
                         <motion.div
-                            key={i}
+                            key={item.id}
                             className="relative z-10 group"
                             variants={itemVariants}
                             onMouseEnter={(e) => {
@@ -114,19 +128,19 @@ export default function Sidebar() {
                             }}
                             onMouseLeave={() => setHovered(null)}
                         >
-
                             <div className="absolute -left-[10px] top-1/2 -translate-y-1/2">
                                 <div className="w-1 h-5 bg-[#5d57a3] rounded-r-full transition-all duration-300 group-hover:h-10"></div>
                             </div>
 
                             <img
-                                src={`https://ui-avatars.com/api/?background=494d54&uppercase=false&color=dbdcdd&size=128&font-size=0.33&name=${i + 1}`}
-                                alt={`Icon ${i + 1}`}
+                                src={item.icon}
+                                alt={item.name}
                                 draggable={false}
                                 className="w-14 h-14 rounded-[50%] bg-indigo-700 hover:rounded-[35%] transition-all duration-300 cursor-pointer select-none"
                             />
                         </motion.div>
                     ))}
+
                 </motion.div>
 
                 <div className="fixed bottom-0 w-20 left-0 right-0 h-5 rounded-xl pointer-events-none z-20">
@@ -155,22 +169,20 @@ export default function Sidebar() {
                                 <p className="font-semibold">Home</p>
                             ) : (
                                 <>
-                                    <p className="font-semibold">Marin Chan {hovered}</p>
-                                    <p className="text-xs text-gray-400">16 Members</p>
+                                    <p className="font-semibold">{items[hovered].name}</p>
+                                    <p className="text-xs text-gray-400">{items[hovered].members} Members</p>
                                 </>
                             )}
                         </div>
+
                     </motion.div>
                 )}
             </AnimatePresence>
 
 
-            <div className="h-full overflow-y-auto hidden-scrollbar w-73 bg-[#191822] mt-[40px] flex flex-col justify-between items-center py-4 relative border border-[#38364d] border-b-0 border-r-0 rounded-r-xl sm:rounded-r-none sm:rounded-tl-xl">
-                <div className="mb-[6rem] ">
-                    <div className="bg-indigo-600/70 w-[16rem] text-center backdrop-blur p-4 text-xl  rounded-xl select-none">
-                       Muzzle back with new style
-                    </div>
-                    <hr className="mt-4 mb-4 text-[#665be6]" />
+            <div className="h-full overflow-y-auto hidden-scrollbar w-73 bg-[#191822]  mt-[40px] flex flex-col justify-between items-center py-4 relative border border-[#38364d] border-b-0  rounded-r-xl sm:rounded-r-none sm:rounded-tl-xl">
+                <div className="mb-[6rem] w-[16rem]">
+
 
 
                     <div
@@ -210,6 +222,7 @@ export default function Sidebar() {
                                 <div className="flex flex-col space-y-3 py-4 gap-1 pb-4">
                                     <Link href="/dashboard" className="group">
                                         <div
+                                            onClickCapture={() => setActive("overview")}
                                             className={`relative flex items-center gap-2 h-[3rem] py-2 pl-5 pr-4 rounded-md transition
               ${active === "overview"
                                                     ? "bg-indigo-500/50 text-white"
@@ -223,13 +236,14 @@ export default function Sidebar() {
               `}
                                             ></span>
 
-                                            <LayoutDashboard className="w-6 h-6" />
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" className="w-6 h-6" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8.557 2.75H4.682A1.93 1.93 0 0 0 2.75 4.682v3.875a1.94 1.94 0 0 0 1.932 1.942h3.875a1.94 1.94 0 0 0 1.942-1.942V4.682A1.94 1.94 0 0 0 8.557 2.75m10.761 0h-3.875a1.94 1.94 0 0 0-1.942 1.932v3.875a1.943 1.943 0 0 0 1.942 1.942h3.875a1.94 1.94 0 0 0 1.932-1.942V4.682a1.93 1.93 0 0 0-1.932-1.932M8.557 13.5H4.682a1.943 1.943 0 0 0-1.932 1.943v3.875a1.93 1.93 0 0 0 1.932 1.932h3.875a1.94 1.94 0 0 0 1.942-1.932v-3.875a1.94 1.94 0 0 0-1.942-1.942m8.818-.001a3.875 3.875 0 1 0 0 7.75a3.875 3.875 0 0 0 0-7.75" /></svg>
                                             <span className="mt-1">Overview</span>
                                         </div>
                                     </Link>
 
                                     <Link href="/dashboard/premium" className="group">
                                         <div
+                                            onClickCapture={() => setActive("premium")}
                                             className={`relative flex items-center gap-2 h-[3rem] py-2 pl-5 pr-4 rounded-md transition
               ${active === "premium"
                                                     ? "bg-indigo-500/50 text-white"
@@ -290,6 +304,7 @@ export default function Sidebar() {
                                 <div className="flex flex-col space-y-3 py-4 gap-1 pb-4">
                                     <Link href="/dashboard/store/profile" className="group">
                                         <div
+                                            onClickCapture={() => setActive("profile")}
                                             className={`relative flex items-center gap-2 h-[3rem] py-2 pl-5 pr-4 rounded-md transition
               ${active === "profile"
                                                     ? "bg-indigo-500/50 text-white"
@@ -310,6 +325,7 @@ export default function Sidebar() {
 
                                     <Link href="/dashboard/store/id" className="group">
                                         <div
+                                            onClickCapture={() => setActive("id")}
                                             className={`relative flex items-center gap-2 h-[3rem] py-2 pl-5 pr-4 rounded-md transition
               ${active === "id"
                                                     ? "bg-indigo-500/50 text-white"
@@ -370,6 +386,7 @@ export default function Sidebar() {
                                 <div className="flex flex-col space-y-3 py-4 gap-1 pb-4">
                                     <Link href="/dashboard/top/corns" className="group">
                                         <div
+                                            onClickCapture={() => setActive("corns")}
                                             className={`relative flex items-center gap-2 h-[3rem] py-2 pl-5 pr-4 rounded-md transition
               ${active === "corns"
                                                     ? "bg-indigo-500/50 text-white"
@@ -390,6 +407,7 @@ export default function Sidebar() {
 
                                     <Link href="/dashboard/top/xp" className="group">
                                         <div
+                                            onClickCapture={() => setActive("xp")}
                                             className={`relative flex items-center gap-2 h-[3rem] py-2 pl-5 pr-4 rounded-md transition
               ${active === "xp"
                                                     ? "bg-indigo-500/50 text-white"
@@ -410,6 +428,7 @@ export default function Sidebar() {
 
                                     <Link href="/dashboard/top/reputation" className="group">
                                         <div
+                                            onClickCapture={() => setActive("reputation")}
                                             className={`relative flex items-center gap-2 h-[3rem] py-2 pl-5 pr-4 rounded-md transition
               ${active === "reputation"
                                                     ? "bg-indigo-500/50 text-white"
@@ -470,6 +489,7 @@ export default function Sidebar() {
                                 <div className="flex flex-col space-y-3 py-4 gap-1 pb-4">
                                     <Link href="/dashboard/daily" className="group">
                                         <div
+                                            onClickCapture={() => setActive("daily")}
                                             className={`relative flex items-center gap-2 h-[3rem] py-2 pl-5 pr-4 rounded-md transition
               ${active === "daily"
                                                     ? "bg-indigo-500/50 text-white"
@@ -488,8 +508,9 @@ export default function Sidebar() {
                                         </div>
                                     </Link>
 
-                                    <Link href="https://top.gg/bot/1321940665667551272/vote" className="group">
+                                    <Link href="https://top.gg/bot/1321940665667551272/vote" target="blank" className="group">
                                         <div
+
                                             className={`relative flex items-center gap-2 h-[3rem] py-2 pl-5 pr-4 rounded-md transition
               ${active === "vote"
                                                     ? "bg-indigo-500/50 text-white"
@@ -503,7 +524,7 @@ export default function Sidebar() {
               `}
                                             ></span>
 
-                                           
+
                                             <svg viewBox="120 120 580 580" className="w-6 h-6" focusable="false" > <path fill="currentColor" d="M655.711 247H330.71V572H397.113C422.599 572 447.042 561.876 465.064 543.854C483.086 525.832 493.21 501.389 493.21 475.902V409.5H559.613C585.099 409.5 609.542 399.375 627.564 381.354C645.586 363.332 655.711 338.889 655.711 313.402V247Z"></path> <path fill="currentColor" d="M144 247H306.5V409.5H193.657C180.531 409.5 167.943 404.286 158.661 395.004C149.379 385.722 144.165 373.134 144.165 360.008L144 247Z"></path></svg>
                                             <span className="mt-1">Vote</span>
                                         </div>
@@ -511,6 +532,7 @@ export default function Sidebar() {
 
                                     <Link href="/dashboard/transactions" className="group">
                                         <div
+                                            onClickCapture={() => setActive("transactions")}
                                             className={`relative flex items-center gap-2 h-[3rem] py-2 pl-5 pr-4 rounded-md transition
               ${active === "transactions"
                                                     ? "bg-indigo-500/50 text-white"
@@ -539,10 +561,10 @@ export default function Sidebar() {
 
                 </div>
 
-                <div className="bg-gradient-to-r z-50 fixed bottom-0  from-[#665be6] to-[#2617c9] w-72.5 rounded-t-xl  p-4 flex items-center gap-3 shrink-0">
-                    <div className="flex items-center gap-3 group  shrink-0 cursor-pointer">
+                <div className="bg-gradient-to-r z-50 fixed bottom-0  from-[#665be6] to-[#2617c9] w-72.5 md:w-73 rounded-t-3xl  p-4 flex items-center gap-3 shrink-0">
+                    <div onClickCapture={() => router.push("/dashboard")} className="flex items-center gap-3 group  shrink-0 cursor-pointer">
                         <img
-                            src="https://cdn.discordapp.com/avatars/618078478755037185/dcaf14115dd138394fd69e6ee4741c73.png?size=1024"
+                            src="https://cdn.discordapp.com/avatars/618078478755037185/243ab1914f7cbc7b67f0a9f3ee1a77f7.png?size=1024"
                             alt="User"
                             className="w-9 h-9 bg-white rounded-full group-hover:scale-110 transition-all duration-300 select-none"
                             draggable={false}

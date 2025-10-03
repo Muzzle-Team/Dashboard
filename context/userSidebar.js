@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useState, useContext } from 'react';
+import { createContext, useState, useContext, useEffect } from 'react';
 
 const SidebarContext = createContext();
 
@@ -10,8 +10,12 @@ export const SidebarProvider = ({ children }) => {
   const [isStore, setIsStore] = useState(true);
   const [isLeaderboardOpen, setIsLeaderboardOpen] = useState(true);
   const [isOthers, setIsOthers] = useState(true);
-  const [active, setActive] = useState("overview");
-
+  const [active, setActive] = useState(null);
+  const [hasAnimated, setHasAnimated] = useState(false);
+  const [timeLeft, setTimeLeft] = useState(null);
+  useEffect(() => {
+    setHasAnimated(true);
+  }, [setHasAnimated]);
   return (
     <SidebarContext.Provider
       value={{
@@ -26,7 +30,11 @@ export const SidebarProvider = ({ children }) => {
         isStore,
         setIsStore,
         isOthers,
-        setIsOthers
+        setIsOthers,
+        hasAnimated,
+        setHasAnimated,
+        timeLeft,
+        setTimeLeft
       }}
     >
       {children}
