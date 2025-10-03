@@ -35,7 +35,7 @@ jobs:
               "title": "🚀 New Commit",
               "description": "**Repository:** ${{ github.repository }}\n**Commit:** \`${GITHUB_SHA:0:7}\`",
               "url": "${{ github.event.head_commit.url }}",
-              "color": "#4f39f6",
+              "color": 5192182,
               "fields": [
                 {
                   "name": "📝 Message",
