@@ -7,6 +7,21 @@ jobs:
   notify:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      
+      - name: Get Commit Stats
+        id: stats
+        run: |
+          ADDITIONS=$(git show --shortstat | grep -oP '\d+(?= insertion)' || echo "0")
+          DELETIONS=$(git show --shortstat | grep -oP '\d+(?= deletion)' || echo "0")
+          FILES_CHANGED=$(git show --shortstat | grep -oP '\d+(?= file)' || echo "0")
+          echo "additions=$ADDITIONS" >> $GITHUB_OUTPUT
+          echo "deletions=$DELETIONS" >> $GITHUB_OUTPUT
+          echo "files=$FILES_CHANGED" >> $GITHUB_OUTPUT
+      
       - name: Send Discord Notification
         env:
           DISCORD_WEBHOOK: "https://discord.com/api/webhooks/1423632532842348607/uOyYnGnD_JPMvn_fLC15O6A8-kTjnDQZCzTa2Z2fVo9CVMjeDWzfGajoQmv6w73hK0EA"
@@ -23,10 +38,17 @@ jobs:
               "color": 3447003,
               "fields": [
                 {
-                  "name": "Message",
-                  "value": "$(echo "$COMMIT_MESSAGE" | head -c 200)"
+                  "name": "📝 Message",
+                  "value": "$(echo "$COMMIT_MESSAGE" | head -c 200)",
+                  "inline": false
+                },
+                {
+                  "name": "📊 Changes",
+                  "value": "📁 **${{ steps.stats.outputs.files }}** files\n✅ **+${{ steps.stats.outputs.additions }}** additions\n❌ **-${{ steps.stats.outputs.deletions }}** deletions",
+                  "inline": true
                 }
-              ]
+              ],
+              "timestamp": "${{ github.event.head_commit.timestamp }}"
             }]
           }
           EOF
