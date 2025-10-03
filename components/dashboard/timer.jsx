@@ -19,12 +19,10 @@ export default function CountdownTimer({ targetTimestamp }) {
     return () => clearInterval(interval);
   }, [targetTimestamp]);
 
-  // حساب الساعات والدقائق والثواني
   const hours = Math.floor(timeLeft / (1000 * 60 * 60));
   const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
   const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-  // تفكيك كل خانة (tens و units)
   const splitDigits = (num) => String(num).padStart(2, "0").split("");
 
   const hourDigits = splitDigits(hours);
@@ -41,7 +39,7 @@ export default function CountdownTimer({ targetTimestamp }) {
     digits.map((digit, index) => (
       <AnimatePresence mode="popLayout" key={index}>
         <motion.span
-          key={digit + index} // مهم عشان يتحرك كل خانة لوحدها
+          key={digit + index}
           variants={numberVariant}
           initial="initial"
           animate="animate"
