@@ -18,10 +18,9 @@ import { useSidebar } from "@/context/userSidebar";
 
     if (!show) return;
 
-    // إنشاء قطع confetti
     particles.current = Array.from({ length: 100 }).map(() => ({
       x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height / 2, // البداية من النص الأعلى
+      y: Math.random() * canvas.height / 2,
       size: Math.random() * 6 + 4,
       color: `hsl(${Math.random() * 360}, 100%, 50%)`,
       speedY: Math.random() * 3 + 2,
@@ -53,7 +52,6 @@ import { useSidebar } from "@/context/userSidebar";
 
     animate();
 
-    // إخفاء الانيميشن بعد 3 ثواني
     const timeout = setTimeout(() => {
       cancelAnimationFrame(animationFrameId);
       ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -75,7 +73,7 @@ import { useSidebar } from "@/context/userSidebar";
 
 export default function Daily() {
   const recaptchaRef = useRef();
-  const [stage, setStage] = useState("initial"); // initial | captcha | done
+  const [stage, setStage] = useState("initial"); 
   const [number, setNumber] = useState(null);
 
   const {
@@ -120,13 +118,12 @@ useEffect(() => {
   const prevStage = prevStageRef.current;
 
   if (prevStage === "captcha" && stage === "done") {
-    // ظهر الانتقال من captcha لـ done
     setShowConfetti(true);
     const timeout = setTimeout(() => setShowConfetti(false), 3000);
     return () => clearTimeout(timeout);
   }
 
-  prevStageRef.current = stage; // تحديث الـ stage السابق
+  prevStageRef.current = stage; 
 }, [stage]);
 
 
