@@ -7,23 +7,24 @@ const calculateUserXp = (xp) => Math.floor(xp / 1000);
 // XP required to reach level L (linear): 1000 * L
 const xpForLevel = (lvl) => 1000 * lvl;
 const formatNumber = (num) => {
-  if (num >= 1000000000) return (num / 1000000000).toFixed(1) + "B";
-  if (num >= 1000000) return (num / 1000000).toFixed(1) + "M";
-  if (num >= 1000) return (num / 1000).toFixed(1) + "k";
+  if (num >= 1_000_000_000) return Math.floor(num / 100_000_000) / 10 + "B";
+  if (num >= 1_000_000) return Math.floor(num / 100_000) / 10 + "M";
+  if (num >= 1_000) return Math.floor(num / 100) / 10 + "k";
   return num.toString();
 };
 
+
 // 🎭 FAKE DATA - للعرض التجريبي فقط
 const FAKE_USER_DATA = {
-  displayName: "マゼン",
+  displayName: "mazinx",
   username: "mz_n",
   xp: 45750,
   credits: 1250000,
   reputation: 99,
   about:
     "Professional gamer and anime lover 🎮✨ | Building the best Discord community | Coffee addict ☕",
-  rank: 127,
-  avatar: "https://cdn.discordapp.com/avatars/618078478755037185/4336843200bf2537f6cd773e3ddd6bd2.png?size=1024",
+  rank: 1,
+  avatar: "https://cdn.discordapp.com/avatars/618078478755037185/6eb3714acb606504d5d1e63bc98c368a.png?size=1024",
 };
 
 export async function GET() {
@@ -32,8 +33,8 @@ export async function GET() {
     const user = FAKE_USER_DATA;
 
     const level = calculateUserXp(user.xp);
-    const currentXP = user.xp - xpForLevel(level);
-    const totalXP = xpForLevel(level + 1) - xpForLevel(level);
+    const currentXP = user.xp ;
+    const totalXP = xpForLevel(level + 1);
 
     // Create canvas with custom profile dimensions
     const canvas = createCanvas(549, 548);
@@ -220,9 +221,7 @@ export async function GET() {
 
     // Draw text with stroke
     ctx.lineWidth = 2;
-    ctx.strokeStyle = "rgba(0,0,0,0.45)";
     ctx.fillStyle = "#fff";
-    ctx.strokeText(text, textX, textY);
     ctx.fillText(text, textX, textY);
 
     ctx.fillStyle = "rgba(255, 255, 255, 0.95)";
@@ -492,7 +491,7 @@ export async function GET() {
     // central progress text with outline for readability
     const progressText = `${formatNumber(currentXP)} / ${formatNumber(totalXP)}`;
     ctx.lineWidth = 1.8;
-    ctx.strokeStyle = "rgba(0,0,0,0.48)";
+  
     ctx.strokeText(progressText, canvas.width / 2, progressBarY + 10);
     ctx.fillText(progressText, canvas.width / 2, progressBarY + 10);
 

@@ -6,48 +6,79 @@ import { motion, AnimatePresence } from "framer-motion";
 import { LogOut, LayoutDashboard } from "lucide-react"
 import Page from "@/components/dashboard/page";
 import ChartAreaDefault from "@/components/dashboard/chart-area";
+import Link from "next/link";
 import { useState, useEffect } from "react";
+
 export default function Dashboard() {
   const [imgUrl, setImgUrl] = useState(null);
 
   useEffect(() => {
     const fetchImage = async () => {
       try {
-        const res = await fetch('/api/profile-image'); // API يولد الصورة
-        const blob = await res.blob();
-        const url = URL.createObjectURL(blob);
-        setImgUrl(url);
+        const res = await fetch('/api/profile-image');
+        const arrayBuffer = await res.arrayBuffer(); 
+        const base64 = btoa(
+          new Uint8Array(arrayBuffer).reduce(
+            (data, byte) => data + String.fromCharCode(byte),
+            ''
+          )
+        );
+        setImgUrl(`data:image/png;base64,${base64}`);
       } catch (e) {
         console.error(e);
       }
     };
-
+  
     fetchImage();
-    return () => {
-      if (imgUrl) URL.revokeObjectURL(imgUrl);
-    };
   }, []);
+
+  const addCommas = (num) => {
+    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  };
+  
+  const formatted = addCommas("1250000")
+  
   return (
     <Page>
 
       <div className="flex flex-col md:flex-row md:items-center gap-1 md:gap-4 mb-4">
+      <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, delay: 1 * 0.1 }}>
         <h2 className="text-white flex space-x-2 font-medium text-lg md:text-xl">
           <LayoutDashboard className="h-6 w-6" />
           <span>Overview</span>
         </h2>
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, delay: 2 * 0.1 }}>
         <span className="hidden md:block w-px h-4 bg-[#5b5683]"></span>
-
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, delay: 3 * 0.1 }}>
         <span className="text-md text-zinc-400">
           The Overview page gives you a quick glance at your most important information and activities, all in one place. It’s designed to help you stay on top of your account without needing to jump between different sections.
         </span>
+        </motion.div>
       </div>
+      <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, delay: 4 * 0.1 }}
+          >
       <hr className="border-[#373450] mb-4" />
+      </motion.div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 1 * 0.2 }}
+          transition={{ duration: 0.6, delay: 5 * 0.1 }}
           className="bg-[#1b1922]/50 backdrop-blur p-3 sm:p-4 sm:py-2 rounded-md border border-[#2e2b41]"
         >
           <div className="flex items-center  gap-2 justify-between sm:gap-3">
@@ -63,7 +94,7 @@ export default function Dashboard() {
           </div>
 
           <p className=" text-xl sm:text-2xl font-semibold break-words">
-            0
+          {formatted}
           </p>
         </motion.div>
 
@@ -71,7 +102,7 @@ export default function Dashboard() {
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 2 * 0.2 }}
+          transition={{ duration: 0.6, delay: 6 * 0.1 }}
           className="bg-[#1b1922]/50 backdrop-blur p-3 sm:p-4 sm:py-2 rounded-md border border-[#2e2b41]"
         >
           <div className="flex items-center  gap-2 justify-between sm:gap-3">
@@ -87,14 +118,14 @@ export default function Dashboard() {
           </div>
 
           <p className=" text-xl sm:text-2xl font-semibold break-words">
-            0
+            45
           </p>
         </motion.div>
 
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 3 * 0.2 }}
+          transition={{ duration: 0.6, delay: 7 * 0.1 }}
           className="bg-[#1b1922]/50 backdrop-blur p-3 sm:p-4 sm:py-2 rounded-md border border-[#2e2b41]"
         >
           <div className="flex items-center  gap-2 justify-between sm:gap-3">
@@ -110,14 +141,14 @@ export default function Dashboard() {
           </div>
 
           <p className=" text-xl sm:text-2xl font-semibold break-words">
-            0
+            99
           </p>
         </motion.div>
 
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 4 * 0.2 }}
+          transition={{ duration: 0.6, delay: 8 * 0.1 }}
           className="bg-[#1b1922]/50 backdrop-blur p-3 sm:p-4 sm:py-2 rounded-md border border-[#2e2b41]"
         >
           <div className="flex items-center  gap-2 justify-between sm:gap-3">
@@ -133,7 +164,7 @@ export default function Dashboard() {
           </div>
 
           <p className=" text-xl sm:text-2xl font-semibold break-words">
-            0
+            #1
           </p>
         </motion.div>
       </div>
@@ -142,7 +173,7 @@ export default function Dashboard() {
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
+          transition={{ duration: 0.6, delay: 9 * 0.1 }}
           className="flex-1 min-w-0"
         >
           <ChartAreaDefault />
@@ -151,21 +182,32 @@ export default function Dashboard() {
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
+          transition={{ duration: 0.6, delay: 10 * 0.1 }}
           className="flex-shrink-0 w-full lg:w-[420px] xl:w-[500px] h-full"
         >
-          <div className="bg-[#1b1922]/50 border border-[#2e2b41] p-6 rounded-lg flex flex-col items-center md:h-[34.2rem]">
-            <h3 className="text-xl text-gray-200 font-semibold mb-6">Profile</h3>
+          <div className="bg-[#1b1922]/50 border border-[#2e2b41] p-6 rounded-lg flex flex-col  md:h-[34.5rem]">
+            <div className="flex justify-between">
+              <h3 className="text-xl text-gray-200 font-semibold mb-6">Profile</h3>
+              <div className="group">
+                <Link href="/dashboard/store/profile" className=" flex space-x-1 p-1.5 bg-[#4f39f65d] rounded-xl cursor-pointer -translate-y-2 border-2 border-indigo-600 group-hover:bg-indigo-600  transition-all duration-300 ">
+                  <svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} viewBox="0 0 24 24"><g fill="currentColor" fillRule="evenodd" clipRule="evenodd"><path d="M11.32 6.176H5c-1.105 0-2 .949-2 2.118v10.588C3 20.052 3.895 21 5 21h11c1.105 0 2-.948 2-2.118v-7.75l-3.914 4.144A2.46 2.46 0 0 1 12.81 16l-2.681.568c-1.75.37-3.292-1.263-2.942-3.115l.536-2.839c.097-.512.335-.983.684-1.352z"></path><path d="M19.846 4.318a2.2 2.2 0 0 0-.437-.692a2 2 0 0 0-.654-.463a1.92 1.92 0 0 0-1.544 0a2 2 0 0 0-.654.463l-.546.578l2.852 3.02l.546-.579a2.1 2.1 0 0 0 .437-.692a2.24 2.24 0 0 0 0-1.635M17.45 8.721L14.597 5.7L9.82 10.76a.54.54 0 0 0-.137.27l-.536 2.84c-.07.37.239.696.588.622l2.682-.567a.5.5 0 0 0 .255-.145l4.778-5.06Z"></path></g></svg>
+                  <span className="mt-1">Edit Profile</span>
+                </Link>
+              </div>
+            </div>
 
             {imgUrl ? (
               <img
                 src={imgUrl}
                 alt="Profile Image"
-                className="w-full h-full max-h-[550px] rounded-lg object-cover shadow-lg transition-transform hover:scale-[1.03] duration-300"
+                draggable={false}
+                onContextMenu={(e) => e.preventDefault()} 
+                className="w-full select-none h-full max-h-[550px] rounded-lg object-cover shadow-lg transition-transform hover:scale-[1.03] duration-300"
               />
             ) : (
               <div className="w-full h-full max-h-[550px] bg-[#2a2835] rounded-lg animate-pulse" />
             )}
+
           </div>
         </motion.div>
       </div>

@@ -20,12 +20,12 @@ export default function RootLayout({ children }) {
         <meta name="theme-color" content="#4f39f6" />
 
         {/* Favicon */}
-        <link rel="icon" href="/assests/logo1.png" />
+        <link rel="icon" href="/assets/logo1.png" />
 
         {/* Open Graph (social sharing preview) */}
         <meta property="og:title" content="Muzzle Bot" />
         <meta property="og:description" content="Muzzle - Discord bot for Fun, Memes, Images, Giveaway, Economy and Anime! Muzzle serve over 117 commands!" />
-        <meta property="og:image" content="/assests/banner.png" />
+        <meta property="og:image" content="/assets/banner.png" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://muzzlebot.xyz/" />
 
@@ -33,7 +33,7 @@ export default function RootLayout({ children }) {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Muzzle Bot" />
         <meta name="twitter:description" content="Muzzle - Discord bot for Fun, Memes, Images, Giveaway, Economy and Anime! Muzzle serve over 117 commands!" />
-        <meta name="twitter:image" content="/assests/banner.png" />
+        <meta name="twitter:image" content="/assets/banner.png" />
       </head>
       <body
         className={`tfont custom-scrollbar`}

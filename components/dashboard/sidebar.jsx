@@ -28,11 +28,11 @@ export default function Sidebar() {
     const touchEndX = useRef(null);
     const router = useRouter();
     const items = [
-        { id: 1, name: "Marin Chan", members: 16, icon: "https://ui-avatars.com/api/?background=494d54&color=dbdcdd&size=128&name=MC" },
-        { id: 2, name: "One Piece", members: 120, icon: "https://ui-avatars.com/api/?background=494d54&color=dbdcdd&size=128&name=OP" },
-        { id: 3, name: "Anime Hub", members: 45, icon: "https://ui-avatars.com/api/?background=494d54&color=dbdcdd&size=128&name=AH" },
-        { id: 4, name: "Gaming Zone", members: 200, icon: "https://ui-avatars.com/api/?background=494d54&color=dbdcdd&size=128&name=GZ" },
-        { id: 5, name: "Cinema Club", members: 67, icon: "https://ui-avatars.com/api/?background=494d54&color=dbdcdd&size=128&name=CC" },
+        { id: 1, name: "Marin Chan", members: 16, icon: "https://cdn.discordapp.com/icons/1294072522219978802/12e48a18d32be277c7b1dc8a87ac00b9.png?size=80&quality=lossless" },
+        { id: 2, name: "One Piece", members: 120, icon: "https://cdn.discordapp.com/embed/avatars/0.png" },
+        { id: 3, name: "Anime Hub", members: 45, icon: "https://cdn.discordapp.com/embed/avatars/0.png" },
+        { id: 4, name: "Gaming Zone", members: 200, icon: "https://cdn.discordapp.com/embed/avatars/0.png" },
+        { id: 5, name: "Cinema Club", members: 67, icon: "https://cdn.discordapp.com/embed/avatars/0.png" },
     ];
 
     const pathname = usePathname();
@@ -101,7 +101,7 @@ export default function Sidebar() {
                     </div>
 
                     <img
-                        src="https://cdn.discordapp.com/avatars/618078478755037185/243ab1914f7cbc7b67f0a9f3ee1a77f7.png?size=1024"
+                        src="https://cdn.discordapp.com/avatars/618078478755037185/6eb3714acb606504d5d1e63bc98c368a.png?size=1024"
                         alt="Profile"
                         draggable={false}
                         className="w-14 h-14 rounded-[50%] bg-indigo-700 cursor-pointer hover:rounded-[35%] transition-all duration-300 select-none"
@@ -564,7 +564,7 @@ export default function Sidebar() {
                 <div className="bg-gradient-to-r z-50 fixed bottom-0  from-[#665be6] to-[#2617c9] w-72.5 md:w-73 rounded-t-3xl  p-4 flex items-center gap-3 shrink-0">
                     <div onClickCapture={() => router.push("/dashboard")} className="flex items-center gap-3 group  shrink-0 cursor-pointer">
                         <img
-                            src="https://cdn.discordapp.com/avatars/618078478755037185/243ab1914f7cbc7b67f0a9f3ee1a77f7.png?size=1024"
+                            src="https://cdn.discordapp.com/avatars/618078478755037185/6eb3714acb606504d5d1e63bc98c368a.png?size=1024"
                             alt="User"
                             className="w-9 h-9 bg-white rounded-full group-hover:scale-110 transition-all duration-300 select-none"
                             draggable={false}
