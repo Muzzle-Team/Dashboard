@@ -5,7 +5,28 @@ import { useSidebar } from "@/context/userSidebar";
 import { motion, AnimatePresence } from "framer-motion";
 import { LogOut, LayoutDashboard } from "lucide-react"
 import Page from "@/components/dashboard/page";
+import ChartAreaDefault from "@/components/dashboard/chart-area";
+import { useState, useEffect } from "react";
 export default function Dashboard() {
+  const [imgUrl, setImgUrl] = useState(null);
+
+  useEffect(() => {
+    const fetchImage = async () => {
+      try {
+        const res = await fetch('/api/profile-image'); // API يولد الصورة
+        const blob = await res.blob();
+        const url = URL.createObjectURL(blob);
+        setImgUrl(url);
+      } catch (e) {
+        console.error(e);
+      }
+    };
+
+    fetchImage();
+    return () => {
+      if (imgUrl) URL.revokeObjectURL(imgUrl);
+    };
+  }, []);
   return (
     <Page>
 
@@ -116,6 +137,40 @@ export default function Dashboard() {
           </p>
         </motion.div>
       </div>
+
+      <div className="mt-[2rem] flex flex-col lg:flex-row items-stretch w-full gap-6">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="flex-1 min-w-0"
+        >
+          <ChartAreaDefault />
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="flex-shrink-0 w-full lg:w-[420px] xl:w-[500px] h-full"
+        >
+          <div className="bg-[#1b1922]/50 border border-[#2e2b41] p-6 rounded-lg flex flex-col items-center md:h-[34.2rem]">
+            <h3 className="text-xl text-gray-200 font-semibold mb-6">Profile</h3>
+
+            {imgUrl ? (
+              <img
+                src={imgUrl}
+                alt="Profile Image"
+                className="w-full h-full max-h-[550px] rounded-lg object-cover shadow-lg transition-transform hover:scale-[1.03] duration-300"
+              />
+            ) : (
+              <div className="w-full h-full max-h-[550px] bg-[#2a2835] rounded-lg animate-pulse" />
+            )}
+          </div>
+        </motion.div>
+      </div>
+
+
 
     </Page>
 

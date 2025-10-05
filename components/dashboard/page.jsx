@@ -20,7 +20,7 @@ export default function Page({ children }) {
                         onClick={() => setIsSidebarOpen(false)}
                     ></div>
                 )}
-                <div className="px-5 md:px-[100px]  overflow-auto ml-0 md:ml-[15rem] pt-[60px] md:pt-[90px] ">
+                <div className="px-5 md:px-[20px]  overflow-auto ml-0 md:ml-[15rem] pt-[60px] md:pt-[90px] ">
                     {children}
                 </div>
             </div>
