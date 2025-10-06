@@ -123,3 +123,115 @@ body {
     --chart-5: oklch(0.645 0.246 16.439);
   }
 }
+
+.main-title {
+
+  background: linear-gradient(135deg,#a0a0a0,#fff,#e0e0e0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: .1em;
+  text-transform: uppercase
+}
+
+
+
+.glass-shine {
+  position: relative;
+  overflow: hidden;
+
+}
+
+
+/* Improved Shine Effect */
+.glass-shine::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.1) 20%,
+      rgba(255, 255, 255, 0.6) 50%,
+      rgba(255, 255, 255, 0.1) 80%,
+      transparent 100%
+  );
+  transform: skewX(-25deg);
+  animation: enhancedShine 6s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Enhanced Keyframes */
+@keyframes enhancedShine {
+  0% { 
+      left: -150%; 
+      opacity: 0; 
+  }
+  15% { 
+      opacity: 1; 
+  }
+  35% { 
+      left: 150%; 
+      opacity: 1; 
+  }
+  40% { 
+      opacity: 0; 
+  }
+  100% { 
+      left: 150%; 
+      opacity: 0; 
+  }
+}
+
+/* Variations */
+.glass-shine--fast::after {
+  animation: enhancedShine 3s ease-in-out infinite;
+}
+
+.glass-shine--slow::after {
+  animation: enhancedShine 8s ease-in-out infinite;
+}
+
+.glass-shine--golden::after {
+  background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 215, 0, 0.1) 20%,
+      rgba(255, 215, 0, 0.6) 50%,
+      rgba(255, 215, 0, 0.1) 80%,
+      transparent 100%
+  );
+}
+
+
+
+/* Additional shine variants */
+.glass-shine--diagonal::after {
+  transform: skewX(-45deg) scale(1.5);
+  background: linear-gradient(
+      120deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.15) 30%,
+      rgba(255, 255, 255, 0.7) 50%,
+      rgba(255, 255, 255, 0.15) 70%,
+      transparent 100%
+  );
+}
+
+.glass-shine--pulse::after {
+  animation: enhancedShine 4s ease-in-out infinite, pulse 4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 0.8; }
+}
+
+.inner-white-shadow {
+  box-shadow: inset 0 0 15px rgba(255, 255, 255, 0.4);
+}
+

@@ -9,6 +9,7 @@ import ChartAreaDefault from "@/components/dashboard/chart-area";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 
+
 export default function Dashboard() {
   const [imgUrl, setImgUrl] = useState(null);
 
