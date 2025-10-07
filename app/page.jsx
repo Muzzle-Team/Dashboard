@@ -8,6 +8,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import StarBorder from "@/components/StarBorder";
 import AnimatedLeft from "@/components/ui/AnimatedLeft";
 import AnimatedRight from "@/components/ui/AnimatedRight";
+import AnimatedTop from "@/components/ui/AnimatedTop";
 import Fade from "@/components/ui/Fade";
 
 
@@ -51,7 +52,7 @@ const Marquee = ({ children, speed = 25 }) => {
 };
 
 const Card = ({ icon, title, subtitle, gradient }) => (
-  <div className={`flex items-center gap-4 ${gradient} rounded-2xl shadow-xl p-6 min-w-[280px] text-white transform hover:scale-105 transition-transform duration-300`}>
+  <div className={`flex items-center gap-4 ${gradient} rounded-2xl  p-6 min-w-[280px] text-white transform hover:scale-105 transition-transform duration-300`}>
     <img src={icon} className="h-9 w-9" />
     <div>
       <h3 className="font-bold text-lg">{title}</h3>
@@ -487,6 +488,7 @@ export default function ParticlesBasic() {
 
         <div className="flex flex-col md:flex-row items-center justify-between w-full min-h-[80vh] px-8 py-12 bg-[#13131a]">
           <div className="w-full md:w-1/2 flex justify-center">
+          <AnimatedLeft>
             <div className="relative w-full flex justify-center items-center">
 
               <img
@@ -503,14 +505,17 @@ export default function ParticlesBasic() {
                 draggable="false"
               />
             </div>
+            </AnimatedLeft>
 
           </div>
           <div className="w-full md:w-1/2 mt-8 md:mt-0 md:pl-12 text-center ">
+          <Fade delay={0.1}>
             <h2 className="text-5xl md:text-7xl font-bold text-white mb-4 ">
               Muzzle Bot
             </h2>
+            </Fade>
             <div className="flex flex-wrap justify-center gap-6">
-
+              
               <div className="w-full sm:w-[45%] bg-[#1a1a24] border border-[#2b2b3b] p-3 flex rounded-lg text-white">
                 <motion.div
                   className="rounded-md border border-[#2b2b3b] p-6  w-full h-[250px] flex flex-col justify-between items-end cursor-pointer relative overflow-hidden"
@@ -1073,35 +1078,55 @@ export default function ParticlesBasic() {
         </div>
       </div>
       <div className="bg-[#13131a]">
-      <div className="relative h-auto md:h-[15rem] md:flex w-full items-center  border-t border-[#21212e] z-30 bg-[#13131a]  overflow-hidden gap-8 p-8 justify-between">
-        <div className="text-white ">
-          <div className="flex space-x-2  text-2xl md:text-5xl font-extrabold">
-          <h1 className="mt-3">Join Muzzle And Enjoy</h1>
-          <img src="/assets/logo1.png" className="h-20 w-20"/>
+        <div className="relative h-auto md:h-[15rem] md:flex w-full items-center  border-t border-[#21212e] z-30 bg-[#13131a]  overflow-hidden gap-8 p-8 justify-between">
+          <div className="text-white ">
+            <div className="flex space-x-2  text-2xl md:text-5xl font-extrabold">
+              <h1 className="mt-3">Join Muzzle And Enjoy</h1>
+              <img src="/assets/logo1.png" className="h-20 w-20" />
+            </div>
+            <p className="text-gray-300">Join support server to keep up to date with latest updates</p>
           </div>
-          <p className="text-gray-300">Join support server to keep up to date with latest updates</p>
+          <div className="text-white bg-indigo-500/20 border border-indigo-500 px-5 py-4 rounded-md flex space-x-2 cursor-pointer hover:bg-indigo-500/50 transition-all duration-300">
+            <img src="/assets/logo2.png" className="h-6 w-6" />
+            <span className="text-lg">Join Support Server</span>
+          </div>
         </div>
-        <div className="text-white bg-indigo-500/20 border border-indigo-500 px-5 py-4 rounded-md flex space-x-2 cursor-pointer hover:bg-indigo-500/50 transition-all duration-300">
-        <img src="/assets/logo2.png" className="h-6 w-6"/>
-          <span className="text-lg">Join Support Server</span>
+        <div className="flex justify-center items-center translate-y-[6.5rem]">
+          <img
+            className="z-40 select-none"
+            src="/assets/wump.webp"
+            width={174}
+            alt="Wumpus"
+            draggable="false"
+          />
+          
         </div>
-      </div>
+        <div className="flex justify-center items-center -translate-y-[7rem] rotate-3">
+          <img
+            className="z-40 select-none"
+            src="/assets/idk.webp"
+            width={174}
+            alt="Wumpus"
+            draggable="false"
+          />
+          
+        </div>
 
-      <footer className="rounded-4xl z-30 border-3 rounded-b-none border-b-0 text-white border-[#383853] bg-gradient-to-b from-[#1c1c27] to-[#13131a] md:ml-3 md:mr-3 py-12">
-        
+        <footer className="rounded-4xl z-30 border-3 rounded-b-none border-b-0 text-white border-[#383853] bg-gradient-to-b from-[#1c1c27] to-[#13131a] md:ml-3 md:mr-3 py-12">
+
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid md:grid-cols-4 gap-8">
               {/* Brand */}
               <div>
                 <h3 className="text-xl font-bold  mb-4 flex space-x-2">
-                <img src="/assets/logo2.png" className="h-6 w-6"/>
-                 <span> Muzzle Bot</span>
+                  <img src="/assets/logo2.png" className="h-6 w-6" />
+                  <span> Muzzle Bot</span>
                 </h3>
                 <p className="text-zinc-400">
-                A powerful Discord bot designed to enhance your server management
-            experience. With advanced moderation tools, custom commands, and an
-            intuitive dashboard, Muzzle Bot brings efficiency and control to your
-            Discord community.
+                  A powerful Discord bot designed to enhance your server management
+                  experience. With advanced moderation tools, custom commands, and an
+                  intuitive dashboard, Muzzle Bot brings efficiency and control to your
+                  Discord community.
                 </p>
               </div>
 
@@ -1110,19 +1135,19 @@ export default function ParticlesBasic() {
                 <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
                 <div className="space-y-2">
                   <button
-                   
+
                     className="block text-gray-300 hover:text-indigo-400 transition-colors duration-200"
                   >
                     Top.gg
                   </button>
                   <button
-                  
+
                     className="block text-gray-300 hover:text-indigo-400 transition-colors duration-200"
                   >
                     Commands
                   </button>
                   <button
-                    
+
                     className="block text-gray-300 hover:text-indigo-400 transition-colors duration-200"
                   >
                     Plans
@@ -1140,47 +1165,49 @@ export default function ParticlesBasic() {
                     rel="noopener noreferrer"
                     className="text-gray-400 hover:text-indigo-400 transition-colors duration-200"
                   >
-                   Discord
+                    Discord
                   </a>
-                 
+
                 </div>
-                
+
               </div>
               <div>
                 <h4 className="text-lg font-semibold mb-4">Legal</h4>
                 <div className="space-y-2">
                   <button
-                   
+
                     className="block text-gray-300 hover:text-indigo-400 transition-colors duration-200"
                   >
                     Terms of Service
                   </button>
                   <button
-                  
+
                     className="block text-gray-300 hover:text-indigo-400 transition-colors duration-200"
                   >
-                   Privacy Policy
+                    Privacy Policy
                   </button>
-                
+
                 </div>
               </div>
             </div>
-            
+
 
             <div className="border-t border-zinc-700 mt-8 pt-8 text-center md:flex md:justify-between">
               <p className="text-gray-300">
-                © 2025 Muzzle Bot. All rights reserved.
+                © 2025 Muzzle Bot All rights reserved.
+                <br/>
+                <span className="text-indigo-500">Discord for wump image</span>
               </p>
               <div className="flex space-x-2">
-              <img
-          src="https://cdn.prod.website-files.com/6257adef93867e50d84d30e2/66e3d7f4ef6498ac018f2c55_Symbol.svg"
-          className="h-6 w-6"
-        />
+                <img
+                  src="https://cdn.prod.website-files.com/6257adef93867e50d84d30e2/66e3d7f4ef6498ac018f2c55_Symbol.svg"
+                  className="h-6 w-6"
+                />
               </div>
             </div>
           </div>
         </footer>
-        </div>
+      </div>
 
     </>
   );

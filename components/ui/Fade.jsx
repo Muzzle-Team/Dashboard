@@ -17,10 +17,10 @@ export default function Fade({
 
   return (
     <motion.div
-      ref={ref} // ✅ لازم تربطه هنا
+      ref={ref} 
       initial={{ opacity: 0, scale: 0.95 }}
       animate={hasAnimated ? { opacity: 1, scale: 1 } : {}}
-      transition={{ duration: 0.6, delay }} // ✅ استخدم delay اللي جاي من props
+      transition={{ duration: 0.6, delay }} 
     >
       {children}
     </motion.div>

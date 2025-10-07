@@ -23,7 +23,11 @@ body {
   background: #191822;
 }
 
-
+.lolfont {
+  font-family: "Lilita One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
 
 .tfont {
   font-family: "Vazirmatn", sans-serif;

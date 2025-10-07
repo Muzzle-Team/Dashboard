@@ -78,12 +78,14 @@ export default function ChartAreaDefault() {
                                 tickMargin={12}
                                 tickFormatter={(value) => value.slice(0, 12)}
                                 style={{ fontSize: '14px' }}
+                                tick={{ fill: '#d1d5db', fontSize: 14 }}
                             />
                             <YAxis
                                 tickLine={false}
                                 axisLine={true}
                                 tickMargin={8}
                                 style={{ fontSize: '14px' }}
+                                tick={{ fill: '#d1d5db', fontSize: 14 }}
                             />
 
                             <ChartTooltip

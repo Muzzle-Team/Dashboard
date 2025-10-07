@@ -3,7 +3,7 @@
 - Overview [✅]
 - Store [✅]
 - Daily [✅]
+- Leaderboard [✅]
 - ## Undone 
 - Premium []
-- Leaderboard []
 - Transactions []

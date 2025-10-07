@@ -21,21 +21,36 @@ export default function Navbar() {
         duration: 0.7,
         ease: "easeOut",
       }}
-      className={`fixed z-50 top-6 left-1/2  -translate-x-1/2 rounded-xl transition-all duration-500 flex items-center justify-between 
+      className={`fixed z-50 top-6 left-1/2  -translate-x-1/2 rounded-xl transition-all duration-500  
         px-3 sm:px-4 md:px-6 py-2
         ${scrolled ? "backdrop-blur-md bg-white/10 shadow-lg" : "bg-transparent"}
         ${scrolled ? "w-[90%] sm:w-[85%] md:w-[75%] lg:w-[60%]" : "w-[95%] sm:w-[90%] md:w-[80%] lg:w-[70%]"}
       `}
     >
-      <div className="flex items-center space-x-2">
-        <img
-          src="/assets/logo2.png"
-          alt="Bot Logo"
-          draggable={false}
-          className="rounded-md w-8 h-8 sm:w-9 sm:h-9 object-cover select-none"
-        />
-    <span className="text-white font-bold">Muzzle Bot</span>
-      </div>
+      
+      <div className="flex items-center justify-between">
+      <div className="flex items-center space-x-2 relative  ">
+  {/* صورة Wumpus فوق النص */}
+  <img
+    src="/assets/wump.webp"
+    alt="Wumpus"
+    width={50}
+    className="absolute -top-6 left-[1/2] translate-x-[2.9rem] select-none pointer-events-none"
+    draggable="false"
+  />
+
+  {/* اللوجو */}
+  <img
+    src="/assets/logo2.png"
+    alt="Bot Logo"
+    draggable={false}
+    className="rounded-md w-8 h-8 sm:w-9 sm:h-9 object-cover select-none"
+  />
+  
+  {/* الاسم */}
+  <span className="text-white font-bold">Muzzle Bot</span>
+</div>
+
 
       <div className="hidden md:flex items-center gap-8 text-white">
         <div className="flex space-x-2 hover:bg-indigo-600/50 cursor-pointer p-1 rounded-md duration-300 transition-all">
@@ -95,6 +110,7 @@ export default function Navbar() {
           className="rounded-md bg-indigo-700 w-8 h-8 sm:w-9 sm:h-9 object-cover select-none"
         />
  
+      </div>
       </div>
     </motion.nav>
   );
