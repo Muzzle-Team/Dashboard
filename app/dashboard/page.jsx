@@ -72,7 +72,7 @@ export default function Dashboard() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 4 * 0.1 }}
           >
-      <hr className="border-[#373450] mb-4" />
+      <hr className="border-[#302e46] mb-4" />
       </motion.div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -80,7 +80,7 @@ export default function Dashboard() {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 5 * 0.1 }}
-          className="bg-[#1b1922]/50 backdrop-blur p-3 sm:p-4 sm:py-2 rounded-md border border-[#2e2b41]"
+          className="bg-[#191822]/50 backdrop-blur p-3 sm:p-4 sm:py-2 rounded-md border border-[#2e2b41]"
         >
           <div className="flex items-center  gap-2 justify-between sm:gap-3">
 
@@ -104,7 +104,7 @@ export default function Dashboard() {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 6 * 0.1 }}
-          className="bg-[#1b1922]/50 backdrop-blur p-3 sm:p-4 sm:py-2 rounded-md border border-[#2e2b41]"
+          className="bg-[#191822]/50 backdrop-blur p-3 sm:p-4 sm:py-2 rounded-md border border-[#2e2b41]"
         >
           <div className="flex items-center  gap-2 justify-between sm:gap-3">
 
@@ -127,7 +127,7 @@ export default function Dashboard() {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 7 * 0.1 }}
-          className="bg-[#1b1922]/50 backdrop-blur p-3 sm:p-4 sm:py-2 rounded-md border border-[#2e2b41]"
+          className="bg-[#191822]/50 backdrop-blur p-3 sm:p-4 sm:py-2 rounded-md border border-[#2e2b41]"
         >
           <div className="flex items-center  gap-2 justify-between sm:gap-3">
 
@@ -186,7 +186,7 @@ export default function Dashboard() {
           transition={{ duration: 0.6, delay: 10 * 0.1 }}
           className="flex-shrink-0 w-full lg:w-[420px] xl:w-[500px] h-full"
         >
-          <div className="bg-[#1b1922]/50 border border-[#2e2b41] p-6 rounded-lg flex flex-col  md:h-[34.5rem]">
+          <div className="bg-[#191822]/50 border border-[#2e2b41] p-6 rounded-lg flex flex-col  md:h-[34.5rem]">
             <div className="flex justify-between">
               <h3 className="text-xl text-gray-200 font-semibold mb-6">Profile</h3>
               <div className="group">
@@ -203,7 +203,7 @@ export default function Dashboard() {
                 alt="Profile Image"
                 draggable={false}
                 onContextMenu={(e) => e.preventDefault()} 
-                className="w-full select-none h-full max-h-[550px] rounded-lg object-cover shadow-lg transition-transform hover:scale-[1.03] duration-300"
+                className="w-full select-none h-full max-h-[550px] rounded-lg object-cover shadow-lg transition-transform  duration-300"
               />
             ) : (
               <div className="w-full h-full max-h-[550px] bg-[#2a2835] rounded-lg animate-pulse" />

@@ -24,7 +24,7 @@ const FAKE_USER_DATA = {
   about:
     "Professional gamer and anime lover 🎮✨ | Building the best Discord community | Coffee addict ☕",
   rank: 1,
-  avatar: "https://cdn.discordapp.com/avatars/618078478755037185/6eb3714acb606504d5d1e63bc98c368a.png?size=1024",
+  avatar: "https://cdn.discordapp.com/avatars/618078478755037185/9d67cfd5d3ecd981548c55b5fadd6912.png?size=1024",
 };
 
 export async function GET() {
@@ -395,18 +395,18 @@ export async function GET() {
     ctx.font = "bold 16px Arial, Arial";
     ctx.lineWidth = 1.4;
     ctx.strokeStyle = "rgba(0,0,0,0.38)";
-    ctx.strokeText(`LEVEL: ${level}`, 45, 358);
-    ctx.fillText(`LEVEL: ${level}`, 45, 358);
+    ctx.strokeText(`LEVEL: ${level}`, 50, 358);
+    ctx.fillText(`LEVEL: ${level}`, 50, 358);
 
     // Rank with trophy icon
     ctx.fillStyle = "#FFFFFF";
     ctx.font = "16px Arial, Arial";
-    ctx.fillText("🏆", 25, 378);
+    ctx.fillText("🏆", 25, 388);
     ctx.font = "bold 16px Arial, Arial";
     ctx.lineWidth = 1.4;
     ctx.strokeStyle = "rgba(0,0,0,0.38)";
-    ctx.strokeText(`RANK: ${user.rank}`, 45, 378);
-    ctx.fillText(`RANK: ${user.rank}`, 45, 378);
+    ctx.strokeText(`RANK: ${user.rank}`, 50, 388);
+    ctx.fillText(`RANK: ${user.rank}`, 50, 388);
 
     // XP section
     ctx.fillStyle = "rgba(255, 255, 255, 0.95)";
@@ -424,8 +424,8 @@ export async function GET() {
     ctx.font = "bold 16px Arial, Arial";
     ctx.strokeStyle = "rgba(0,0,0,0.38)";
     ctx.lineWidth = 1.4;
-    ctx.strokeText(`TOTAL XP: ${formatNumber(user.xp)}`, 45, 438);
-    ctx.fillText(`TOTAL XP: ${formatNumber(user.xp)}`, 45, 438);
+    ctx.strokeText(`TOTAL XP: ${formatNumber(user.xp)}`, 50, 438);
+    ctx.fillText(`TOTAL XP: ${formatNumber(user.xp)}`, 50, 438);
 
     // XP Progress bar
     const progressBarWidth = canvas.width - 50;

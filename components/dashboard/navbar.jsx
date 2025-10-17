@@ -18,11 +18,11 @@ export default function Navbar() {
     setIsSubscription,
   } = useSidebar();
   return (
-    <nav className="fixed top-0 left-0 w-full bg-[#191822] px-4 sm:px-8 py-2 flex items-center justify-between z-50">
+    <nav className="fixed top-0 left-0 w-full bg-[#111018] px-4 sm:px-8 py-2 flex items-center justify-between z-50">
      <div className="hidden md:block"></div>
      <div className="flex items-center gap-2">
           <img
-            src={`https://cdn.discordapp.com/avatars/618078478755037185/6eb3714acb606504d5d1e63bc98c368a.png?size=1024`}
+            src={`https://cdn.discordapp.com/avatars/618078478755037185/9d67cfd5d3ecd981548c55b5fadd6912.png?size=1024`}
             alt="Profile"
             draggable={false}
             className="rounded-md bg-indigo-700 w-6 h-6 object-cover select-none"

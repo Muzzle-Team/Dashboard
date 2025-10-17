@@ -6,7 +6,7 @@ import CountdownTimer from "@/components/dashboard/timer";
 import { motion, AnimatePresence } from "framer-motion";
 import { useSidebar } from "@/context/userSidebar";
 
- function ConfettiCanvas({ show }) {
+function ConfettiCanvas({ show }) {
   const canvasRef = useRef();
   const particles = useRef([]);
 
@@ -73,7 +73,7 @@ import { useSidebar } from "@/context/userSidebar";
 
 export default function Daily() {
   const recaptchaRef = useRef();
-  const [stage, setStage] = useState("initial"); 
+  const [stage, setStage] = useState("initial");
   const [number, setNumber] = useState(null);
 
   const {
@@ -111,30 +111,30 @@ export default function Daily() {
   }, [stage, setStage, targetTimestamp]);
 
   const prevStageRef = useRef(stage);
-const [showConfetti, setShowConfetti] = useState(false);
+  const [showConfetti, setShowConfetti] = useState(false);
 
-useEffect(() => {
-  const prevStage = prevStageRef.current;
+  useEffect(() => {
+    const prevStage = prevStageRef.current;
 
-  if (prevStage === "captcha" && stage === "done") {
-    setShowConfetti(true);
-    const timeout = setTimeout(() => setShowConfetti(false), 3000);
-    return () => clearTimeout(timeout);
-  }
+    if (prevStage === "captcha" && stage === "done") {
+      setShowConfetti(true);
+      const timeout = setTimeout(() => setShowConfetti(false), 3000);
+      return () => clearTimeout(timeout);
+    }
 
-  prevStageRef.current = stage; 
-}, [stage]);
+    prevStageRef.current = stage;
+  }, [stage]);
 
 
-const ConfettiPiece = ({ color, x, y }) => (
-  <motion.div
-    initial={{ opacity: 1, y: 0, x: x, rotate: 0 }}
-    animate={{ y: -200, opacity: 0, rotate: 360 }}
-    transition={{ duration: 2, ease: "easeOut" }}
-    className="absolute w-2 h-2 rounded-full"
-    style={{ backgroundColor: color }}
-  />
-);
+  const ConfettiPiece = ({ color, x, y }) => (
+    <motion.div
+      initial={{ opacity: 1, y: 0, x: x, rotate: 0 }}
+      animate={{ y: -200, opacity: 0, rotate: 360 }}
+      transition={{ duration: 2, ease: "easeOut" }}
+      className="absolute w-2 h-2 rounded-full"
+      style={{ backgroundColor: color }}
+    />
+  );
 
 
 
@@ -171,8 +171,8 @@ const ConfettiPiece = ({ color, x, y }) => (
     border-2
     mt-[2rem] w-[30rem] md:w-[35rem] p-9 rounded-2xl text-center
     ${stage === "initial" ? "group bg-[#222138] border-[#383472] hover:bg-[#4b41d8] hover:border-[#4b41d8] transition-all duration-300" : ""}
-    ${stage === "captcha" ? "bg-[#222138] border-[#383472]" : ""}
-    ${stage === "done" ? "bg-[#222138] border-[#383472] w-full" : ""}
+    ${stage === "captcha" ? "bg-yellow-400/10 border-yellow-400" : ""}
+    ${stage === "done" ? "bg-green-400/10 border-green-400 w-full" : ""}
   `;
 
 
@@ -193,13 +193,13 @@ const ConfettiPiece = ({ color, x, y }) => (
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="#5048b8" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1"><path strokeWidth="1.5" d="M2.5 12c0-4.478 0-6.718 1.391-8.109S7.521 2.5 12 2.5c4.478 0 6.718 0 8.109 1.391S21.5 7.521 21.5 12c0 4.478 0 6.718-1.391 8.109S16.479 21.5 12 21.5c-4.478 0-6.718 0-8.109-1.391S2.5 16.479 2.5 12m9.5 4v-4.5" /><path strokeWidth="1.8" d="M12 8.012v-.01" /></g></svg>
           <span className="text-zinc-200 mt-0.5">Come back everyday to earn corns!  </span>
         </p>
-      </div> 
+      </div>
 
       <div className="flex justify-center h-[33rem] relative ">
-      <ConfettiCanvas show={showConfetti} />
+        <ConfettiCanvas show={showConfetti} />
 
-        <div className={boxClasses}>
- 
+        <div className={`${boxClasses} transition-all duration-500`}>
+
           {stage === "initial" && (
             <div onClick={handleClick} className="cursor-pointer flex flex-col items-center">
               <div className="flex justify-center group-hover:text-white text-[#4b41d8] transition-all duration-300">
@@ -226,22 +226,24 @@ const ConfettiPiece = ({ color, x, y }) => (
           {stage === "done" && number !== null && (
             <>
               <div className="relative flex justify-center items-center">
-                <div className="flex justify-center group-hover:text-white text-[#373381] transition-all md:-translate-y-12 duration-300">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" className="md:w-[400px] md:h-[400px] w-[300px] h-[300px]" viewBox="0 0 512 512">
-                    <path fill="none" stroke="currentColor" strokeLinecap="round" strokeMiterlimit="10" strokeWidth="32" d="M256 104v56h56a56 56 0 1 0-56-56Zm0 0v56h-56a56 56 0 1 1 56-56Z" />
-                    <rect width="384" height="112" x="64" y="160" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="32" rx="32" ry="32" />
-                    <path fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="32" d="M416 272v144a48 48 0 0 1-48 48H144a48 48 0 0 1-48-48V272m160-112v304" />
+                <div className="flex justify-center group-hover:text-white transition-all md:-translate-y-12 duration-300">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" className="md:w-[400px] md:h-[400px] w-[300px] h-[300px]" viewBox="0 0 24 24">
+                    <path fill="#05df72" d="M12 22c-4.714 0-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12s0-7.071 1.464-8.536C4.93 2 7.286 2 12 2s7.071 0 8.535 1.464C22 4.93 22 7.286 22 12s0 7.071-1.465 8.535C19.072 22 16.714 22 12 22" opacity={0.5}></path>
+                    <path fill="#05df72" d="M16.03 8.97a.75.75 0 0 1 0 1.06l-5 5a.75.75 0 0 1-1.06 0l-2-2a.75.75 0 1 1 1.06-1.06l1.47 1.47l4.47-4.47a.75.75 0 0 1 1.06 0"></path>
                   </svg>
                 </div>
 
               </div>
               <div className=" flex justify-center items-center text-5xl font-extrabold  z-10 translate-y-6 md:-translate-y-6  space-x-2">
-                <svg xmlns="http://www.w3.org/2000/svg" className="-translate-y-7" width="50" height="50" viewBox="0 0 256 256"><g fill="#4b41d8"><path d="M216 136a88 88 0 1 1-88-88a88 88 0 0 1 88 88" opacity="0.2" /><path d="M128 40a96 96 0 1 0 96 96a96.11 96.11 0 0 0-96-96m0 176a80 80 0 1 1 80-80a80.09 80.09 0 0 1-80 80m45.66-125.66a8 8 0 0 1 0 11.32l-40 40a8 8 0 0 1-11.32-11.32l40-40a8 8 0 0 1 11.32 0M96 16a8 8 0 0 1 8-8h48a8 8 0 0 1 0 16h-48a8 8 0 0 1-8-8" /></g></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" className="-translate-y-7" width="50" height="50" viewBox="0 0 24 24">
+                  <path fill="#05df72" d="M12 6a1 1 0 0 1 1 1v4.422l2.098 1.212a1 1 0 0 1-1 1.732l-2.598-1.5A1 1 0 0 1 11 12V7a1 1 0 0 1 1-1"></path>
+                  <path fill="#05df72" d="M2 12A10 10 0 1 0 12 2A10 10 0 0 0 2 12m9-5a1 1 0 0 1 2 0v4.422l2.098 1.212a1 1 0 0 1-1 1.732l-2.598-1.5A1 1 0 0 1 11 12Z" opacity={0.5}></path>
+                </svg>
                 <CountdownTimer targetTimestamp={targetTimestamp} />
 
               </div>
-              <div className="text-[#736cdf] text-md font-extrabold translate-y-6 md:-translate-y-10  z-10">
-                You have successfully claimed <span className="py-[0.1rem] -mt-0.5 px-[0.5rem] text-white select-none rounded-lg bg-[#372d97]">${number}</span> corns in your last daily
+              <div className="text-green-400 text-md font-extrabold translate-y-6 md:-translate-y-10  z-10">
+                You have successfully claimed <span className="py-[0.1rem] -mt-0.5 px-[0.5rem] text-white select-none rounded-lg bg-green-600">${number}</span> corns in your last daily
               </div>
             </>
           )}

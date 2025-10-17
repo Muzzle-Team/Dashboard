@@ -86,7 +86,7 @@ export default function Sidebar() {
                 : "-translate-x-full md:translate-x-0"
                 } transition-transform duration-300 ease-in-out `}
         >
-            <div className="h-full overflow-y-auto hidden-scrollbar w-20 bg-[#191822] mt-[30px] flex flex-col items-center py-4 relative">
+            <div className="h-full overflow-y-auto hidden-scrollbar w-20 bg-[#111018] mt-[30px] flex flex-col items-center py-4 relative">
                 <div
                     className="relative mb-4 z-10 group"
                     onMouseEnter={(e) => {
@@ -101,7 +101,7 @@ export default function Sidebar() {
                     </div>
 
                     <img
-                        src="https://cdn.discordapp.com/avatars/618078478755037185/6eb3714acb606504d5d1e63bc98c368a.png?size=1024"
+                        src="https://cdn.discordapp.com/avatars/618078478755037185/9d67cfd5d3ecd981548c55b5fadd6912.png?size=1024"
                         alt="Profile"
                         draggable={false}
                         className="w-14 h-14 rounded-[50%] bg-indigo-700 cursor-pointer hover:rounded-[35%] transition-all duration-300 select-none"
@@ -164,13 +164,13 @@ export default function Sidebar() {
                     >
                         <div className="absolute left-[5px]  top-1/2 -translate-y-1/2 w-0 h-0 border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent border-r-[8px] border-r-[#22212f]"></div>
 
-                        <div className="bg-[#22212f] border border-[#37354b] rounded-lg px-3 py-2">
+                        <div className="bg-[#191822] border border-[#2d2b3d] rounded-lg px-3 py-2">
                             {hovered === -1 ? (
                                 <p className="font-semibold">Home</p>
                             ) : (
                                 <>
                                     <p className="font-semibold">{items[hovered].name}</p>
-                                    <p className="text-xs text-gray-400">{items[hovered].members} Members</p>
+                                    <p className="text-xs text-zinc-400">{items[hovered].members} Members</p>
                                 </>
                             )}
                         </div>
@@ -180,7 +180,7 @@ export default function Sidebar() {
             </AnimatePresence>
 
 
-            <div className="h-full overflow-y-auto hidden-scrollbar w-73 bg-[#191822]  mt-[40px] flex flex-col justify-between items-center py-4 relative border border-[#38364d] border-b-0  rounded-r-xl sm:rounded-r-none sm:rounded-tl-xl">
+            <div className="h-full overflow-y-auto hidden-scrollbar w-73 bg-[#111018]  mt-[40px] flex flex-col justify-between items-center py-4 relative border border-[#32304d] border-b-0  rounded-r-xl sm:rounded-r-none sm:rounded-tl-xl">
                 <div className="mb-[6rem] w-[16rem]">
 
 
@@ -561,10 +561,10 @@ export default function Sidebar() {
 
                 </div>
 
-                <div className="bg-gradient-to-r z-50 fixed bottom-0  from-[#665be6] to-[#2617c9] w-72.5 md:w-73 rounded-t-3xl  p-4 flex items-center gap-3 shrink-0">
+                <div className=" z-50 fixed bottom-0  border-[#383853] bg-gradient-to-b from-[#3a374e] to-[#13131a] w-72.5 md:w-73 rounded-t-3xl  p-4 flex items-center gap-3 shrink-0">
                     <div onClickCapture={() => router.push("/dashboard")} className="flex items-center gap-3 group  shrink-0 cursor-pointer">
                         <img
-                            src="https://cdn.discordapp.com/avatars/618078478755037185/6eb3714acb606504d5d1e63bc98c368a.png?size=1024"
+                            src="https://cdn.discordapp.com/avatars/618078478755037185/9d67cfd5d3ecd981548c55b5fadd6912.png?size=1024"
                             alt="User"
                             className="w-9 h-9 bg-white rounded-full group-hover:scale-110 transition-all duration-300 select-none"
                             draggable={false}

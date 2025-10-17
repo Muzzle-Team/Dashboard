@@ -10,7 +10,7 @@ import LeaderboardReputations from "@/components/dashboard/leaderboard_reputatio
 export default function Reputations() {
     return (
         <Page>
-            <div className="flex gap-6 justify-center items-center lolfont font-extrabold text-3xl md:text-4xl mb-9">
+            <div className="md:flex gap-6 justify-center items-center lolfont font-extrabold text-3xl md:text-4xl mb-9">
                 Top 100 Users Have Reputations
                 <div className="flex space-x-3">
                     <img 

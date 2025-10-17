@@ -4,6 +4,9 @@
 - Store [✅]
 - Daily [✅]
 - Leaderboard [✅]
+- Transactions [✅]
 - ## Undone 
-- Premium []
-- Transactions []
+- Premium [] not now
+
+Last bg for side #191822 
+last bg #1d1c27

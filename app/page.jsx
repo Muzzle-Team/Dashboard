@@ -333,7 +333,7 @@ export default function ParticlesBasic() {
                 alt="Muzzle Bot Dashboard"
                 width={1920}
                 height={1080}
-                className="rounded-lg select-none border border-white/20   shadow-2xl w-full h-auto"
+                className="rounded-lg select-none border border-zinc-800/50   shadow-2xl w-full h-auto"
                 quality={100}
                 priority
                 draggable="false"
@@ -1194,7 +1194,7 @@ export default function ParticlesBasic() {
 
             <div className="border-t border-zinc-700 mt-8 pt-8 text-center md:flex md:justify-between">
               <p className="text-gray-300">
-                © 2025 Muzzle Bot All rights reserved.
+                © 2025 Monx Team All rights reserved.
                 <br/>
                 <span className="text-indigo-500">Discord for wump image</span>
               </p>

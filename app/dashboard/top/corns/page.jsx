@@ -10,7 +10,7 @@ import LeaderboardCorns from "@/components/dashboard/leaderboard_corns";
 export default function Corns() {
     return (
         <Page>
-            <div className="flex gap-6 justify-center items-center lolfont font-extrabold text-3xl md:text-4xl mb-9">
+            <div className="md:flex gap-6 justify-center items-center lolfont font-extrabold text-3xl md:text-4xl mb-9">
                 Top 100 Users Have Corns
                 <div className="flex space-x-3">
                     <img 

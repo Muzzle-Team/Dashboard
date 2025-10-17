@@ -10,7 +10,7 @@ import LeaderboardXP from "@/components/dashboard/leaderboard_xp";
 export default function Xp() {
     return (
         <Page>
-            <div className="flex gap-6 justify-center items-center lolfont font-extrabold text-3xl md:text-4xl mb-9">
+            <div className="md:flex gap-6 justify-center items-center lolfont font-extrabold text-3xl md:text-4xl mb-9">
                 Top 100 Users Have XP
                 <div className="flex space-x-3">
                     <img 
