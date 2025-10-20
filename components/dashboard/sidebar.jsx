@@ -88,6 +88,7 @@ export default function Sidebar() {
         >
             <div className="h-full overflow-y-auto hidden-scrollbar w-20 bg-[#111018] mt-[30px] flex flex-col items-center py-4 relative">
                 <div
+                onClick={() => router.push("/dashboard")}
                     className="relative mb-4 z-10 group"
                     onMouseEnter={(e) => {
                         setHovered(-1);
@@ -120,6 +121,7 @@ export default function Sidebar() {
                     {items.map((item, i) => (
                         <motion.div
                             key={item.id}
+                            onClick={() => router.push(`/server/${item.id}`)}
                             className="relative z-10 group"
                             variants={itemVariants}
                             onMouseEnter={(e) => {
@@ -456,7 +458,7 @@ export default function Sidebar() {
                         className="text-gray-400 cursor-pointer mt-4 flex items-center justify-between"
                         onClick={() => setIsOthers(!isOthers)}
                     >
-                        <span className="text-white text-sm transition-colors font-extrabold duration-300 select-none">
+                        <span className="text-white uppercase text-sm transition-colors font-extrabold duration-300 select-none">
                             Others
                         </span>
                         <svg

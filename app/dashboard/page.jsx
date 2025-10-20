@@ -2,7 +2,6 @@
 import Navbar from "@/components/dashboard/navbar"
 import Sidebar from "@/components/dashboard/sidebar"
 import { useSidebar } from "@/context/userSidebar";
-import { motion, AnimatePresence } from "framer-motion";
 import { LogOut, LayoutDashboard } from "lucide-react"
 import Page from "@/components/dashboard/page";
 import ChartAreaDefault from "@/components/dashboard/chart-area";
@@ -43,45 +42,19 @@ export default function Dashboard() {
     <Page>
 
       <div className="flex flex-col md:flex-row md:items-center gap-1 md:gap-4 mb-4">
-      <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 1 * 0.1 }}>
         <h2 className="text-white flex space-x-2 font-medium text-lg md:text-xl">
           <LayoutDashboard className="h-6 w-6" />
           <span>Overview</span>
         </h2>
-        </motion.div>
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 2 * 0.1 }}>
         <span className="hidden md:block w-px h-4 bg-[#5b5683]"></span>
-        </motion.div>
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 3 * 0.1 }}>
         <span className="text-md text-zinc-400">
-          The Overview page gives you a quick glance at your most important information and activities, all in one place. It’s designed to help you stay on top of your account without needing to jump between different sections.
+          The Overview page gives you a quick glance at your most important information and activities, all in one place. It's designed to help you stay on top of your account without needing to jump between different sections.
         </span>
-        </motion.div>
       </div>
-      <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 4 * 0.1 }}
-          >
       <hr className="border-[#302e46] mb-4" />
-      </motion.div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 5 * 0.1 }}
-          className="bg-[#191822]/50 backdrop-blur p-3 sm:p-4 sm:py-2 rounded-md border border-[#2e2b41]"
-        >
+        <div className="bg-[#191822]/50 backdrop-blur p-3 sm:p-4 sm:py-2 rounded-md border border-[#2e2b41]">
           <div className="flex items-center  gap-2 justify-between sm:gap-3">
 
             <div className="flex flex-col mt-0.5">
@@ -97,15 +70,10 @@ export default function Dashboard() {
           <p className=" text-xl sm:text-2xl font-semibold break-words">
           {formatted}
           </p>
-        </motion.div>
+        </div>
 
 
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 6 * 0.1 }}
-          className="bg-[#191822]/50 backdrop-blur p-3 sm:p-4 sm:py-2 rounded-md border border-[#2e2b41]"
-        >
+        <div className="bg-[#191822]/50 backdrop-blur p-3 sm:p-4 sm:py-2 rounded-md border border-[#2e2b41]">
           <div className="flex items-center  gap-2 justify-between sm:gap-3">
 
             <div className="flex flex-col mt-0.5">
@@ -121,14 +89,9 @@ export default function Dashboard() {
           <p className=" text-xl sm:text-2xl font-semibold break-words">
             45
           </p>
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 7 * 0.1 }}
-          className="bg-[#191822]/50 backdrop-blur p-3 sm:p-4 sm:py-2 rounded-md border border-[#2e2b41]"
-        >
+        <div className="bg-[#191822]/50 backdrop-blur p-3 sm:p-4 sm:py-2 rounded-md border border-[#2e2b41]">
           <div className="flex items-center  gap-2 justify-between sm:gap-3">
 
             <div className="flex flex-col mt-0.5">
@@ -144,14 +107,9 @@ export default function Dashboard() {
           <p className=" text-xl sm:text-2xl font-semibold break-words">
             99
           </p>
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 8 * 0.1 }}
-          className="bg-[#1b1922]/50 backdrop-blur p-3 sm:p-4 sm:py-2 rounded-md border border-[#2e2b41]"
-        >
+        <div className="bg-[#1b1922]/50 backdrop-blur p-3 sm:p-4 sm:py-2 rounded-md border border-[#2e2b41]">
           <div className="flex items-center  gap-2 justify-between sm:gap-3">
 
             <div className="flex flex-col mt-0.5">
@@ -167,25 +125,15 @@ export default function Dashboard() {
           <p className=" text-xl sm:text-2xl font-semibold break-words">
             #1
           </p>
-        </motion.div>
+        </div>
       </div>
 
       <div className="mt-[2rem] flex flex-col lg:flex-row items-stretch w-full gap-6">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 9 * 0.1 }}
-          className="flex-1 min-w-0"
-        >
+        <div className="flex-1 min-w-0">
           <ChartAreaDefault />
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 10 * 0.1 }}
-          className="flex-shrink-0 w-full lg:w-[420px] xl:w-[500px] h-full"
-        >
+        <div className="flex-shrink-0 w-full lg:w-[420px] xl:w-[500px] h-full">
           <div className="bg-[#191822]/50 border border-[#2e2b41] p-6 rounded-lg flex flex-col  md:h-[34.5rem]">
             <div className="flex justify-between">
               <h3 className="text-xl text-gray-200 font-semibold mb-6">Profile</h3>
@@ -210,7 +158,7 @@ export default function Dashboard() {
             )}
 
           </div>
-        </motion.div>
+        </div>
       </div>
 
 

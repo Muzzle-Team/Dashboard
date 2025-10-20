@@ -108,8 +108,8 @@ export default function ParticlesBasic() {
       opacity: 1,
       y: 0,
       transition: {
-        delay: totalDelay + i * 0.3,
-        duration: 0.6,
+        delay: totalDelay + i * 0.1,
+        duration: 0.5,
         ease: "easeOut",
       },
     }),
@@ -242,7 +242,7 @@ export default function ParticlesBasic() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{
-              duration: 0.8,
+              duration: 0.3,
               ease: "easeOut"
             }}
             className="text-4xl md:text-[4rem] font-extrabold main-title"
@@ -254,8 +254,8 @@ export default function ParticlesBasic() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{
-              duration: 0.8,
-              delay: 0.3,
+              duration: 0.4,
+              delay: 0.1,
               ease: "easeOut"
             }}
             className="text-gray-300 text-lg md:text-xl mb-6 max-w-2xl mx-auto leading-relaxed"

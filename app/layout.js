@@ -1,6 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { SidebarProvider } from "@/context/userSidebar";
+import { GuildSidebarProvider } from "@/context/guildSidebar";
 
 export const metadata = {
   title: "Muzzle Bot",
@@ -42,7 +43,9 @@ export default function RootLayout({ children }) {
         className={`tfont custom-scrollbar`}
       >
         <SidebarProvider>
+          <GuildSidebarProvider>
           {children}
+          </GuildSidebarProvider>
         </SidebarProvider>
       </body>
     </html>
