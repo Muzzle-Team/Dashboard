@@ -16,3 +16,4 @@ last bg #1d1c27
 - Overview [✅]
 - Settings [✅]
 - Embed Message [✅]
+- Welcomer [✅]
