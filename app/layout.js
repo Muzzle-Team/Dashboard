@@ -40,7 +40,7 @@ export default function RootLayout({ children }) {
         <meta name="twitter:image" content="/assets/banner.png" />
       </head>
       <body
-        className={`tfont custom-scrollbar`}
+        className={`tfont custom-scrollbar min-h-screen`}
       >
         <SidebarProvider>
           <GuildSidebarProvider>

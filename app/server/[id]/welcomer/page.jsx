@@ -166,17 +166,18 @@ export default function Dashboard() {
         if (textTrRef.current) textTrRef.current.nodes([]);
         if (welcomeTrRef.current) welcomeTrRef.current.nodes([]);
 
-        if (selectedItem === 'image' && imageRef.current && imageTrRef.current) {
-            imageTrRef.current.nodes([imageRef.current]);
-            imageTrRef.current.getLayer().batchDraw();
-        } else if (selectedItem === 'username' && textRef.current && textTrRef.current) {
-            textTrRef.current.nodes([textRef.current]);
-            textTrRef.current.getLayer().batchDraw();
-        } else if (selectedItem === 'welcome' && welcomeRef.current && welcomeTrRef.current) {
-            welcomeTrRef.current.nodes([welcomeRef.current]);
-            welcomeTrRef.current.getLayer().batchDraw();
-        }
-    }, [selectedItem]);
+        const updateTransformer = (ref, node) => {
+            if (ref.current && node) {
+                ref.current.nodes([node]);
+                ref.current.getLayer().batchDraw();
+            }
+        };
+
+        if (selectedItem === 'image') updateTransformer(imageTrRef, imageRef.current);
+        else if (selectedItem === 'username') updateTransformer(textTrRef, textRef.current);
+        else if (selectedItem === 'welcome') updateTransformer(welcomeTrRef, welcomeRef.current);
+    }, [selectedItem, imageRef.current, textRef.current, welcomeRef.current]);
+
 
     // Handle dropdown outside click
     useEffect(() => {
@@ -223,7 +224,7 @@ export default function Dashboard() {
             {/* Welcome Setup Section */}
             <div className="bg-[#191822]/50 p-4 sm:p-5 rounded-md border border-[#2e2b41]">
                 <div className="flex text-center items-center space-x-2">
-                    <div className="bg-[#22202e] rounded-lg p-3 flex text-center justify-center">
+                    <div className="bg-[#22202e] rounded-lg p-3 flex text-center text-[#625d83] justify-center">
                         <svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} className="w-6.5 h-6.5" viewBox="0 0 24 24">
                             <path fill="currentColor" d="M7.03 4.95L3.5 8.5c-3.33 3.31-3.33 8.69 0 12s8.69 3.33 12 0l6-6c1-.97 1-2.56 0-3.54c-.1-.12-.23-.23-.37-.32l.37-.39c1-.97 1-2.56 0-3.54c-.14-.16-.33-.3-.5-.41c.38-.92.21-2.02-.54-2.77c-.87-.87-2.22-.96-3.2-.28a2.517 2.517 0 0 0-3.88-.42l-2.51 2.51c-.09-.14-.2-.27-.32-.39a2.53 2.53 0 0 0-3.52 0m1.41 1.42c.2-.2.51-.2.71 0s.2.51 0 .71l-3.18 3.18a3 3 0 0 1 0 4.24l1.41 1.41a5 5 0 0 0 1.12-5.36l6.3-6.3c.2-.2.51-.2.7 0s.21.51 0 .71l-4.59 4.6l1.41 1.41l6.01-6.01c.2-.2.51-.2.71 0s.2.51 0 .71l-6.01 6.01l1.41 1.41l4.95-4.95c.2-.2.51-.2.71 0s.2.51 0 .71l-5.66 5.65l1.41 1.42l3.54-3.54c.2-.2.51-.2.71 0s.2.51 0 .71l-6 6.01c-2.54 2.54-6.65 2.54-9.19 0s-2.54-6.65 0-9.19zM23 17c0 3.31-2.69 6-6 6v-1.5c2.5 0 4.5-2 4.5-4.5zM1 7c0-3.31 2.69-6 6-6v1.5c-2.5 0-4.5 2-4.5 4.5z"></path>
                         </svg>
@@ -240,7 +241,7 @@ export default function Dashboard() {
                         <input
                             placeholder="Search or select channel"
                             value={search || selected}
-                            onFocus={() => setOpen(!open)}
+                            
                             onClick={() => setOpen(!open)}
                             onChange={(e) => {
                                 setSearch(e.target.value);
@@ -290,7 +291,7 @@ export default function Dashboard() {
             <div className="bg-[#191822]/50 mt-4 p-4 sm:p-5 rounded-md border border-[#2e2b41]">
                 <div className="flex justify-between items-center">
                     <div className="flex text-center items-center space-x-2">
-                        <div className="bg-[#22202e] rounded-lg p-3 flex text-center justify-center">
+                        <div className="bg-[#22202e] rounded-lg text-[#625d83] p-3 flex text-center justify-center">
                             <svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} className="w-6.5 h-6.5" viewBox="0 0 24 24">
                                 <path fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 9h8m-8 4h6m4-9a3 3 0 0 1 3 3v8a3 3 0 0 1-3 3h-5l-5 3v-3H6a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3z"></path>
                             </svg>
@@ -305,7 +306,7 @@ export default function Dashboard() {
                             onChange={() => setMessageEnabled(!messageEnabled)}
                             className="sr-only peer"
                         />
-                        <div className="w-16 h-8 bg-red-500 rounded-full peer-checked:bg-green-500 transition-colors"></div>
+                        <div className="w-16 h-8 bg-[#22202e] rounded-full peer-checked:bg-indigo-500 transition-colors"></div>
                         <div className="absolute left-1 w-6 h-6 bg-white rounded-full peer-checked:translate-x-8 transition-transform"></div>
                     </label>
                 </div>
@@ -397,7 +398,7 @@ export default function Dashboard() {
             <div className="bg-[#191822]/50 mt-4 p-4 sm:p-5 rounded-md border border-[#2e2b41] ">
                 <div className="flex justify-between items-center">
                     <div className="flex text-center items-center space-x-2">
-                        <div className="bg-[#22202e] rounded-lg p-3 flex text-center justify-center">
+                        <div className="bg-[#22202e] rounded-lg p-3 flex text-center text-[#625d83] justify-center">
                             <svg xmlns="http://www.w3.org/2000/svg" width={256} height={256} className="w-6.5 h-6.5" viewBox="0 0 256 256">
                                 <g fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth={5} transform="scale(3.77953)">
                                     <rect width={59.267} height={59.267} x={4.233} y={4.233} ry={8.467}></rect>
@@ -418,7 +419,7 @@ export default function Dashboard() {
                             onChange={() => setImgEnabled(!imgEnabled)}
                             className="sr-only peer"
                         />
-                        <div className="w-16 h-8 bg-red-500 rounded-full peer-checked:bg-green-500 transition-colors"></div>
+                        <div className="w-16 h-8 bg-[#22202e] rounded-full peer-checked:bg-indigo-500 transition-colors"></div>
                         <div className="absolute left-1 w-6 h-6 bg-white rounded-full peer-checked:translate-x-8 transition-transform"></div>
                     </label>
                 </div>
@@ -494,8 +495,9 @@ export default function Dashboard() {
                                                                         height={imageSize.height}
                                                                         cornerRadius={imageRadius}
                                                                         draggable
-                                                                        onClick={() => setSelectedItem("image")}
-                                                                        onTap={() => setSelectedItem("image")}
+                                                                        onClick={() => setSelectedItem(prev => prev === "image" ? "" : "image")}
+                                                                        onTap={() => setSelectedItem(prev => prev === "image" ? "" : "image")}
+
                                                                         onDragEnd={(e) => {
                                                                             const node = e.target;
                                                                             const newX = Math.max(
@@ -571,8 +573,9 @@ export default function Dashboard() {
                                                                     fontSize={textSize.fontSize}
                                                                     fill={textColor}
                                                                     draggable
-                                                                    onClick={() => setSelectedItem("username")}
-                                                                    onTap={() => setSelectedItem("username")}
+                                                                    onClick={() => setSelectedItem(prev => prev === "username" ? "" : "username")}
+                                                                    onTap={() => setSelectedItem(prev => prev === "username" ? "" : "username")}
+
                                                                     onDragEnd={(e) => {
                                                                         const node = e.target;
                                                                         const newX = Math.max(
@@ -631,8 +634,9 @@ export default function Dashboard() {
                                                                     fontSize={welcomeSize.fontSize}
                                                                     fill={welcomeColor}
                                                                     draggable
-                                                                    onClick={() => setSelectedItem("welcome")}
-                                                                    onTap={() => setSelectedItem("welcome")}
+                                                                    onClick={() => setSelectedItem(prev => prev === "welcome" ? "" : "welcome")}
+                                                                    onTap={() => setSelectedItem(prev => prev === "welcome" ? "" : "welcome")}
+
                                                                     onDragEnd={(e) => {
                                                                         const node = e.target;
                                                                         const newX = Math.max(
@@ -1097,7 +1101,7 @@ export default function Dashboard() {
                                                                             <input
                                                                                 value={textColor}
                                                                                 onChange={(e) => setTextColor(e.target.value)}
-                                                                                className="p-2 rounded-lg focus:outline-none border border-[#3a394b] bg-[#31303f] w-[140px]"
+                                                                                className="p-2 rounded-lg focus:outline-none border border-[#3a394b] bg-[#31303f] w-[170px]"
                                                                             />
                                                                         </div>
                                                                     </div>
@@ -1270,7 +1274,7 @@ export default function Dashboard() {
                                                                             <input
                                                                                 value={welcomeColor}
                                                                                 onChange={(e) => setWelcomeColor(e.target.value)}
-                                                                                className="p-2 rounded-lg focus:outline-none border border-[#3a394b] bg-[#31303f] w-[140px]"
+                                                                                className="p-2 rounded-lg focus:outline-none border border-[#3a394b] bg-[#31303f] w-[170px]"
                                                                             />
                                                                         </div>
                                                                     </div>
@@ -1351,7 +1355,7 @@ export default function Dashboard() {
 
             <div className="bg-[#191822]/50 mt-4 p-4 sm:p-5 rounded-md border border-[#2e2b41]">
                 <div className="flex text-center items-center space-x-2">
-                    <div className="bg-[#22202e] rounded-lg p-3 flex text-center justify-center">
+                    <div className="bg-[#22202e] rounded-lg p-3 flex text-center text-[#625d83] justify-center">
                         <svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} className="w-6.5 h-6.5" viewBox="0 0 24 24">
                             <path fill="currentColor" d="M7.03 4.95L3.5 8.5c-3.33 3.31-3.33 8.69 0 12s8.69 3.33 12 0l6-6c1-.97 1-2.56 0-3.54c-.1-.12-.23-.23-.37-.32l.37-.39c1-.97 1-2.56 0-3.54c-.14-.16-.33-.3-.5-.41c.38-.92.21-2.02-.54-2.77c-.87-.87-2.22-.96-3.2-.28a2.517 2.517 0 0 0-3.88-.42l-2.51 2.51c-.09-.14-.2-.27-.32-.39a2.53 2.53 0 0 0-3.52 0m1.41 1.42c.2-.2.51-.2.71 0s.2.51 0 .71l-3.18 3.18a3 3 0 0 1 0 4.24l1.41 1.41a5 5 0 0 0 1.12-5.36l6.3-6.3c.2-.2.51-.2.7 0s.21.51 0 .71l-4.59 4.6l1.41 1.41l6.01-6.01c.2-.2.51-.2.71 0s.2.51 0 .71l-6.01 6.01l1.41 1.41l4.95-4.95c.2-.2.51-.2.71 0s.2.51 0 .71l-5.66 5.65l1.41 1.42l3.54-3.54c.2-.2.51-.2.71 0s.2.51 0 .71l-6 6.01c-2.54 2.54-6.65 2.54-9.19 0s-2.54-6.65 0-9.19zM23 17c0 3.31-2.69 6-6 6v-1.5c2.5 0 4.5-2 4.5-4.5zM1 7c0-3.31 2.69-6 6-6v1.5c-2.5 0-4.5 2-4.5 4.5z"></path>
                         </svg>
@@ -1368,7 +1372,7 @@ export default function Dashboard() {
                         <input
                             placeholder="Search or select channel"
                             value={lsearch || lselected}
-                            onFocus={() => setlOpen(!lopen)}
+
                             onClick={() => setlOpen(!lopen)}
                             onChange={(e) => {
                                 setlSearch(e.target.value);
@@ -1418,7 +1422,7 @@ export default function Dashboard() {
             <div className="bg-[#191822]/50 mt-4 mb-6 p-4 sm:p-5 rounded-md border border-[#2e2b41]">
                 <div className="flex justify-between items-center">
                     <div className="flex text-center items-center space-x-2">
-                        <div className="bg-[#22202e] rounded-lg p-3 flex text-center justify-center">
+                        <div className="bg-[#22202e] rounded-lg p-3 flex text-center text-[#625d83] justify-center">
                             <svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} className="w-6.5 h-6.5" viewBox="0 0 24 24">
                                 <path fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 9h8m-8 4h6m4-9a3 3 0 0 1 3 3v8a3 3 0 0 1-3 3h-5l-5 3v-3H6a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3z"></path>
                             </svg>
@@ -1433,7 +1437,7 @@ export default function Dashboard() {
                             onChange={() => setMessageLeaveEnabled(!messageLeaveEnabled)}
                             className="sr-only peer"
                         />
-                        <div className="w-16 h-8 bg-red-500 rounded-full peer-checked:bg-green-500 transition-colors"></div>
+                        <div className="w-16 h-8 bg-[#22202e] rounded-full peer-checked:bg-indigo-500 transition-colors"></div>
                         <div className="absolute left-1 w-6 h-6 bg-white rounded-full peer-checked:translate-x-8 transition-transform"></div>
                     </label>
                 </div>
