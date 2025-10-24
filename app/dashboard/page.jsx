@@ -54,7 +54,7 @@ export default function Dashboard() {
       <hr className="border-[#302e46] mb-4" />
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-[#191822]/50 backdrop-blur p-3 sm:p-4 sm:py-2 rounded-md border border-[#2e2b41]">
+        <div className="bg-[#191822]/50 backdrop-blur p-3 sm:p-4 sm:py-2 rounded-xl border border-[#2e2b41]">
           <div className="flex items-center  gap-2 justify-between sm:gap-3">
 
             <div className="flex flex-col mt-0.5">
@@ -73,7 +73,7 @@ export default function Dashboard() {
         </div>
 
 
-        <div className="bg-[#191822]/50 backdrop-blur p-3 sm:p-4 sm:py-2 rounded-md border border-[#2e2b41]">
+        <div className="bg-[#191822]/50 backdrop-blur p-3 sm:p-4 sm:py-2 rounded-xl border border-[#2e2b41]">
           <div className="flex items-center  gap-2 justify-between sm:gap-3">
 
             <div className="flex flex-col mt-0.5">
@@ -91,7 +91,7 @@ export default function Dashboard() {
           </p>
         </div>
 
-        <div className="bg-[#191822]/50 backdrop-blur p-3 sm:p-4 sm:py-2 rounded-md border border-[#2e2b41]">
+        <div className="bg-[#191822]/50 backdrop-blur p-3 sm:p-4 sm:py-2 rounded-xl border border-[#2e2b41]">
           <div className="flex items-center  gap-2 justify-between sm:gap-3">
 
             <div className="flex flex-col mt-0.5">
@@ -109,7 +109,7 @@ export default function Dashboard() {
           </p>
         </div>
 
-        <div className="bg-[#1b1922]/50 backdrop-blur p-3 sm:p-4 sm:py-2 rounded-md border border-[#2e2b41]">
+        <div className="bg-[#1b1922]/50 backdrop-blur p-3 sm:p-4 sm:py-2 rounded-xl border border-[#2e2b41]">
           <div className="flex items-center  gap-2 justify-between sm:gap-3">
 
             <div className="flex flex-col mt-0.5">
@@ -134,7 +134,7 @@ export default function Dashboard() {
         </div>
 
         <div className="flex-shrink-0 w-full lg:w-[420px] xl:w-[500px] h-full">
-          <div className="bg-[#191822]/50 border border-[#2e2b41] p-6 rounded-lg flex flex-col  md:h-[34.5rem]">
+          <div className="bg-[#191822]/50 border border-[#2e2b41] p-6 rounded-xl flex flex-col  md:h-[34.5rem]">
             <div className="flex justify-between">
               <h3 className="text-xl text-gray-200 font-semibold mb-6">Profile</h3>
               <div className="group">

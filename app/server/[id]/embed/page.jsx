@@ -41,7 +41,7 @@ export default function Dashboard() {
             <hr className="border-[#302e46]  mb-4" />
 
 
-            <div className="bg-[#191822]/50   p-4 sm:p-5 rounded-md border border-[#2e2b41]">
+            <div className="bg-[#191822]/50   p-4 sm:p-5 rounded-xl border border-[#2e2b41]">
                 <div className="flex flex-row-reverse items-center w-full bg-[#191822]/60 px-4 py-4 border-2 border-[#222031] rounded-md hover:border-[#2e2b41] transition-colors focus-within:border-[#2e2b41]">
                     <input
                         placeholder="Search for an embed message by name"

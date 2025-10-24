@@ -40,7 +40,7 @@ const chartConfig = {
 export default function Messages() {
     return (
         <div className="flex items-center justify-center min-h-screenp-4 flex-1 ">
-            <Card className="w-full   bg-[#191822]/50  border border-[#2e2b41]">
+            <Card className="w-full rounded-xl  bg-[#191822]/50  border border-[#2e2b41]">
                 <CardHeader>
                     <div>
                         <CardTitle className="text-xl">Messages</CardTitle>

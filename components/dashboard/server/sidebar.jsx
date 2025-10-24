@@ -43,26 +43,26 @@ export default function Sidebar() {
 
     useEffect(() => {
         if (!pathname) return;
-      
+
         const parts = pathname.split("/");
         const afterId = parts.slice(3).join("/");
-      
+
         let newActive;
         if (!afterId) {
-          newActive = "overview";
+            newActive = "overview";
         } else if (afterId.startsWith("top/")) {
-          newActive = afterId.split("top/")[1];
+            newActive = afterId.split("top/")[1];
         } else if (afterId.startsWith("store/")) {
-          newActive = afterId.split("store/")[1];
+            newActive = afterId.split("store/")[1];
         } else if (afterId.startsWith("embed/")) {
-          newActive = "embed";
+            newActive = "embed";
         } else {
-          newActive = afterId;
+            newActive = afterId;
         }
-      
+
         setActive(newActive);
-      }, [pathname]);
-      
+    }, [pathname]);
+
 
 
     const containerVariants = {
@@ -192,29 +192,26 @@ export default function Sidebar() {
             </AnimatePresence>
 
 
-            <div className="h-full overflow-y-auto hidden-scrollbar w-73 bg-[#111018]  mt-[40px] flex flex-col justify-between items-center py-4 relative border border-[#32304d] border-b-0  rounded-r-xl sm:rounded-r-none sm:rounded-tl-xl">
-                <div className="mb-[6rem] w-[16rem]">
-                    <div className="relative w-full h-[7rem] rounded-lg overflow-hidden">
-                        <img
-                            src="https://cdn.discordapp.com/icons/1294072522219978802/12e48a18d32be277c7b1dc8a87ac00b9.png?size=80&quality=lossless"
-                            className="object-cover w-full h-full rounded-lg"
-                            alt="server icon"
-                        />
-                        <div className="absolute inset-0 backdrop-blur-sm bg-black/10 rounded-lg" />
+            <div className="h-full overflow-y-auto hidden-scrollbar w-73 bg-[#111018]  mt-[40px] flex flex-col justify-between items-center relative border border-[#32304d] border-b-0  rounded-r-xl sm:rounded-r-none sm:rounded-tl-xl">
+                <div className="relative w-full h-[9rem] px-[5px]  ">
+                    <img
+                        src="https://cdn.discordapp.com/icons/1294072522219978802/12e48a18d32be277c7b1dc8a87ac00b9.png?size=80&quality=lossless"
+                        className="object-cover w-full h-full "
+                        alt="server icon"
+                    />
+                    <div className="absolute inset-0 backdrop-blur-sm bg-black/30 " />
 
-                        <div className="absolute inset-0 flex items-center justify-center">
-                            <div className="px-4 py-1 bg-white/20 rounded-lg backdrop-blur-sm">
-                                <h2 className="text-white font-extrabold text-2xl drop-shadow-md">
-                                    {
-                                        "Muzzle Supporttttttttt".length > 17
-                                            ? "Muzzle Supporttttttttt".slice(0, 15) + "..."
-                                            : "Muzzle Supporttttttttt"
-                                    }
+                    <div className="absolute inset-0 flex items-center justify-center">
 
-                                </h2>
-                            </div>
-                        </div>
+                        <h2 className="text-white manrope font-extrabold text-6xl drop-shadow-md">
+                            {"Muzzle Support".split(" ").map(w => w[0]).join("")}
+                        </h2>
+
+
                     </div>
+                </div>
+                <div className="mb-[6rem] w-[16rem]">
+
 
 
 

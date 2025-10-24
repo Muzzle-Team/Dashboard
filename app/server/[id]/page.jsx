@@ -34,7 +34,7 @@ export default function Dashboard() {
       <hr className="border-[#302e46] mb-4" />
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-[#191822]/50 backdrop-blur p-4 sm:p-5 rounded-md border border-[#2e2b41] flex flex-col justify-between">
+        <div className="bg-[#191822]/50 backdrop-blur p-4 sm:p-5 rounded-xl border border-[#2e2b41] flex flex-col justify-between">
           <div className="flex items-start justify-between">
             <div className="flex flex-col">
               <p className="text-sm sm:text-2xl font-medium text-white">
@@ -68,7 +68,7 @@ export default function Dashboard() {
 
 
 
-        <div className="bg-[#191822]/50 backdrop-blur p-4 sm:p-5 rounded-md border border-[#2e2b41] flex flex-col justify-between">
+        <div className="bg-[#191822]/50 backdrop-blur p-4 sm:p-5 rounded-xl border border-[#2e2b41] flex flex-col justify-between">
           <div className="flex items-start justify-between">
             <div className="flex flex-col">
               <p className="text-sm sm:text-2xl font-medium text-white">
@@ -95,7 +95,7 @@ export default function Dashboard() {
           </p>
         </div>
 
-        <div className="bg-[#191822]/50 backdrop-blur p-4 sm:p-5 rounded-md border border-[#2e2b41] flex flex-col justify-between">
+        <div className="bg-[#191822]/50 backdrop-blur p-4 sm:p-5 rounded-xl border border-[#2e2b41] flex flex-col justify-between">
           <div className="flex items-start justify-between">
             <div className="flex flex-col">
               <p className="text-sm sm:text-2xl font-medium text-white">
@@ -122,7 +122,7 @@ export default function Dashboard() {
           </p>
         </div>
 
-        <div className="bg-[#191822]/50 backdrop-blur p-4 sm:p-5 rounded-md border border-[#2e2b41] flex flex-col justify-between">
+        <div className="bg-[#191822]/50 backdrop-blur p-4 sm:p-5 rounded-xl border border-[#2e2b41] flex flex-col justify-between">
           <div className="flex items-start justify-between">
             <div className="flex flex-col">
               <p className="text-sm sm:text-2xl font-medium text-white">

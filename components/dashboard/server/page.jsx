@@ -15,7 +15,7 @@ export default function Page({ children }) {
             <Navbar />
             <div className="md:ml-[10rem] min-h-screen bg-[#111018d5] text-white">
                 <Sidebar />
-                <div className="w-full fixed hidden-scrollbar z-50 mt-[40px] ml-0 md:ml-[13.25rem] border-t border-[#32304d]" />
+                <div className="w-full fixed hidden-scrollbar z-40 mt-[40px] ml-0 md:ml-[13.25rem] border-t border-[#32304d]" />
                 {isSidebarOpen && (
                     <div
                         className="fixed inset-0 backdrop-blur-sm z-10"

@@ -105,7 +105,7 @@ export default function Dashboard() {
             </div>
             <hr className="border-[#302e46]  mb-4" />
 
-            <div className="bg-[#191822]/50   p-4 sm:p-5 rounded-md border border-[#2e2b41]">
+            <div className="bg-[#191822]/50   p-4 sm:p-5 rounded-xl border border-[#2e2b41]">
                 <div className="relative">
                     <motion.button
                         onClick={() => setIsOpen(!isOpen)}
