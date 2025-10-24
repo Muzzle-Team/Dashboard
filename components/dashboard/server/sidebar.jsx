@@ -31,11 +31,11 @@ export default function Sidebar() {
     const [hoveredPosition, setHoveredPosition] = useState(0);
     const touchStartX = useRef(null);
     const touchEndX = useRef(null);
- 
+
     const router = useRouter();
     const items = [
-        { id: 1, name: "Marin Chan", members: 16, icon: "https://cdn.discordapp.com/icons/1294072522219978802/bc1544ead4b60b741f4a5f6c69431498.webp" },
-        { id: 2, name: "One Piece", members: 120, icon: "https://cdn.discordapp.com/embed/avatars/0.png" },
+        { id: 1, name: "Marin Chan", members: 16, icon: "https://cdn.discordapp.com/icons/1294072522219978802/bc1544ead4b60b741f4a5f6c69431498.webp", isJoined: true },
+        { id: 2, name: "One Piece", members: 120, icon: "https://cdn.discordapp.com/embed/avatars/0.png", isJoined: true },
         { id: 3, name: "Anime Hub", members: 45, icon: "https://cdn.discordapp.com/embed/avatars/0.png" },
         { id: 4, name: "Gaming Zone", members: 200, icon: "https://cdn.discordapp.com/embed/avatars/0.png" },
         { id: 5, name: "Cinema Club", members: 67, icon: "https://cdn.discordapp.com/embed/avatars/0.png" },
@@ -135,25 +135,30 @@ export default function Sidebar() {
                             className="relative z-10 group"
                             variants={itemVariants}
                             onMouseEnter={(e) => {
-                                setHovered(i);
-                                setHoveredPosition(e.currentTarget.getBoundingClientRect().top);
+                                setHovered(i)
+                                setHoveredPosition(e.currentTarget.getBoundingClientRect().top)
                             }}
                             onMouseLeave={() => setHovered(null)}
                         >
                             <div className="absolute -left-[10px] top-1/2 -translate-y-1/2">
-                                <div className={`w-1 bg-[#5d57a3] rounded-r-full transition-all duration-300 ${id == item.id ? 'h-10' : 'h-5 group-hover:h-10'
-                                    }`}></div>
+                                <div
+                                    className={`w-1 bg-[#5d57a3] rounded-r-full transition-all duration-300 ${id == item.id ? 'h-10' : 'h-5 group-hover:h-10'
+                                        }`}
+                                />
                             </div>
 
                             <img
                                 src={item.icon}
                                 alt={item.name}
                                 draggable={false}
-                                className={`w-14 h-14 bg-indigo-700 transition-all duration-300 cursor-pointer select-none ${id == item.id ? 'rounded-[35%]' : 'rounded-[50%] hover:rounded-[35%]'
-                                    }`}
+                                className={`w-14 h-14 bg-indigo-700 transition-all duration-300 cursor-pointer select-none ${id == item.id
+                                        ? 'rounded-[35%]'
+                                        : 'rounded-[50%] hover:rounded-[35%]'
+                                    } ${item.isJoined ? '' : 'grayscale brightness-75'}`}
                             />
                         </motion.div>
                     ))}
+
 
                 </motion.div>
 
@@ -198,7 +203,7 @@ export default function Sidebar() {
                 <div className="relative w-full">
                     <div className="relative w-full z-50 h-[9rem] px-[5px]">
                         <img
-                          
+
                             src={`https://cdn.discordapp.com/avatars/618078478755037185/365d1b96e4702864faf909835359ff4b.png?size=1024`}
                             className="object-cover w-full h-full"
                             alt="server icon"
@@ -215,7 +220,7 @@ export default function Sidebar() {
                         </div>
                     </div>
 
-                  
+
 
                 </div>
                 <div className="mb-[6rem] w-[16rem]">
@@ -271,7 +276,7 @@ export default function Sidebar() {
             `}
                                         >
                                             <span
-                                                className={`absolute left-0 top-1/2 -translate-y-1/2 w-[4px] rounded-l-none rounded-md bg-indigo-500 transition-all duration-300
+                                                className={`absolute left-0 top-1/2  -translate-y-1/2 w-[4px] rounded-l-none rounded-md bg-indigo-500 transition-all duration-300
                 ${active === "overview" ? "h-7" : "h-0 group-hover:h-7"}
               `}
                                             ></span>

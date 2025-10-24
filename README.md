@@ -18,7 +18,7 @@ last bg #1d1c27
 - Embed Message [✅]
 - Welcomer [✅]
 - Auto Responder [✅]
-- Leveling System []
+- Leveling System [✅]
 - Auto Roles []
 - Audit Logs []
 - Colors []
