@@ -57,7 +57,7 @@ export default function Dashboard() {
             <hr className="border-[#302e46]  mb-4" />
 
 
-            <div className="mt-[2rem] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-[2rem]">
+            <div className="mt-[2rem] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 xl:grid-cols-3 gap-4 mb-[2rem]">
                 <div className="bg-[#191822]/50  p-4  rounded-xl border border-[#2e2b41] flex  flex-col justify-between">
                     <div className="flex justify-between">
 
@@ -69,7 +69,7 @@ export default function Dashboard() {
                             </div>
                             <div className="">
                                 <span className="text-xl uppercase ">Bad Words</span>
-                                <p className="text-[#a29dbb] text-sm">Detects and blocks harmful or restricted language.</p>
+                                <p className="text-[#a29dbb] text-sm max-w-[18rem]">Detects and blocks harmful or restricted language.</p>
                             </div>
 
                         </div>
@@ -93,7 +93,7 @@ export default function Dashboard() {
                         </div>
                     </div>
 
-                    <button className="mt-[1rem] w-full bg-[#211e2c67] p-2 py-3 rounded-md border-2 border-[#353047] hover:bg-[#3530478e] transition-all duration-250 cursor-pointer">Edit Rule</button>
+                    <button className="mt-[1rem] w-full bg-[#211e2c67] p-2 py-3 rounded-md border border-[#353047] hover:bg-[#3530478e] transition-all duration-250 cursor-pointer">Edit Rule</button>
 
                 </div>
 
@@ -109,7 +109,7 @@ export default function Dashboard() {
                             </div>
                             <div className="">
                                 <span className="text-xl uppercase ">Repeated Text</span>
-                                <p className="text-[#a29dbb] text-sm">Detects and limits repeated or spam-like messages.</p>
+                                <p className="text-[#a29dbb] text-sm max-w-[18rem]">Detects and limits repeated or spam-like messages.</p>
                             </div>
 
                         </div>
@@ -133,7 +133,7 @@ export default function Dashboard() {
                         </div>
                     </div>
 
-                    <button className="mt-[1rem] w-full bg-[#211e2c67] p-2 py-3 rounded-md border-2 border-[#353047] hover:bg-[#3530478e] transition-all duration-250 cursor-pointer">Edit Rule</button>
+                    <button className="mt-[1rem] w-full bg-[#211e2c67] p-2 py-3 rounded-md border border-[#353047] hover:bg-[#3530478e] transition-all duration-250 cursor-pointer">Edit Rule</button>
 
                 </div>
 
@@ -149,7 +149,7 @@ export default function Dashboard() {
                             </div>
                             <div className="">
                                 <span className="text-xl uppercase ">Discord Invites</span>
-                                <p className="text-[#a29dbb] text-sm">Detects and blocks messages containing Discord invite links.</p>
+                                <p className="text-[#a29dbb] text-sm max-w-[18rem]">Detects and blocks messages containing Discord invite links.</p>
                             </div>
 
                         </div>
@@ -173,7 +173,7 @@ export default function Dashboard() {
                         </div>
                     </div>
 
-                    <button className="mt-[1rem] w-full bg-[#211e2c67] p-2 py-3 rounded-md border-2 border-[#353047] hover:bg-[#3530478e] transition-all duration-250 cursor-pointer">Edit Rule</button>
+                    <button className="mt-[1rem] w-full bg-[#211e2c67] p-2 py-3 rounded-md border border-[#353047] hover:bg-[#3530478e] transition-all duration-250 cursor-pointer">Edit Rule</button>
 
                 </div>
 
@@ -189,7 +189,7 @@ export default function Dashboard() {
                             </div>
                             <div className="">
                                 <span className="text-xl uppercase ">External Links </span>
-                                <p className="text-[#a29dbb] text-sm">Detects and blocks messages containing suspicious or unsafe external links.</p>
+                                <p className="text-[#a29dbb] text-sm max-w-[18rem]">Detects and blocks messages containing suspicious or unsafe external links.</p>
                             </div>
 
                         </div>
@@ -213,7 +213,7 @@ export default function Dashboard() {
                         </div>
                     </div>
 
-                    <button className="mt-[1rem] w-full bg-[#211e2c67] p-2 py-3 rounded-md border-2 border-[#353047] hover:bg-[#3530478e] transition-all duration-250 cursor-pointer">Edit Rule</button>
+                    <button className="mt-[1rem] w-full bg-[#211e2c67] p-2 py-3 rounded-md border border-[#353047] hover:bg-[#3530478e] transition-all duration-250 cursor-pointer">Edit Rule</button>
 
                 </div>
 
@@ -233,7 +233,7 @@ export default function Dashboard() {
                             </div>
                             <div className="">
                                 <span className="text-xl uppercase ">Mass Emojis</span>
-                                <p className="text-[#a29dbb] text-sm">Detects and limits messages containing excessive or spammy emoji usage.</p>
+                                <p className="text-[#a29dbb] text-sm max-w-[18rem]">Detects and limits messages containing excessive or spammy emoji usage.</p>
                             </div>
 
                         </div>
@@ -257,7 +257,7 @@ export default function Dashboard() {
                         </div>
                     </div>
 
-                    <button className="mt-[1rem] w-full bg-[#211e2c67] p-2 py-3 rounded-md border-2 border-[#353047] hover:bg-[#3530478e] transition-all duration-250 cursor-pointer">Edit Rule</button>
+                    <button className="mt-[1rem] w-full bg-[#211e2c67] p-2 py-3 rounded-md border border-[#353047] hover:bg-[#3530478e] transition-all duration-250 cursor-pointer">Edit Rule</button>
 
                 </div>
 
@@ -274,7 +274,7 @@ export default function Dashboard() {
                             </div>
                             <div className="">
                                 <span className="text-xl uppercase ">Mass Mentions</span>
-                                <p className="text-[#a29dbb] text-sm">Detects and restricts messages with excessive user or role mentions.</p>
+                                <p className="text-[#a29dbb] text-sm max-w-[18rem]">Detects and restricts messages with excessive user or role mentions.</p>
                             </div>
 
                         </div>
@@ -298,7 +298,7 @@ export default function Dashboard() {
                         </div>
                     </div>
 
-                    <button className="mt-[1rem] w-full bg-[#211e2c67] p-2 py-3 rounded-md border-2 border-[#353047] hover:bg-[#3530478e] transition-all duration-250 cursor-pointer">Edit Rule</button>
+                    <button className="mt-[1rem] w-full bg-[#211e2c67] p-2 py-3 rounded-md border border-[#353047] hover:bg-[#3530478e] transition-all duration-250 cursor-pointer">Edit Rule</button>
 
                 </div>
 
@@ -315,7 +315,7 @@ export default function Dashboard() {
                             </div>
                             <div className="">
                                 <span className="text-xl uppercase ">Spam Messages</span>
-                                <p className="text-[#a29dbb] text-sm">Detects and blocks messages sent in rapid succession or with spam content.</p>
+                                <p className="text-[#a29dbb] text-sm max-w-[18rem]">Detects and blocks messages sent in rapid succession or with spam content.</p>
                             </div>
 
                         </div>
@@ -339,7 +339,7 @@ export default function Dashboard() {
                         </div>
                     </div>
 
-                    <button className="mt-[1rem] w-full bg-[#211e2c67] p-2 py-3 rounded-md border-2 border-[#353047] hover:bg-[#3530478e] transition-all duration-250 cursor-pointer">Edit Rule</button>
+                    <button className="mt-[1rem] w-full bg-[#211e2c67] p-2 py-3 rounded-md border border-[#353047] hover:bg-[#3530478e] transition-all duration-250 cursor-pointer">Edit Rule</button>
 
                 </div>
 
@@ -356,7 +356,7 @@ export default function Dashboard() {
                             </div>
                             <div className="">
                                 <span className="text-xl uppercase ">Excessive Caps</span>
-                                <p className="text-[#a29dbb] text-sm">Detects and limits messages written with excessive capital letters.</p>
+                                <p className="text-[#a29dbb] text-sm max-w-[18rem]">Detects and limits messages written with excessive capital letters.</p>
                             </div>
 
                         </div>
@@ -380,7 +380,7 @@ export default function Dashboard() {
                         </div>
                     </div>
 
-                    <button className="mt-[1rem] w-full bg-[#211e2c67] p-2 py-3 rounded-md border-2 border-[#353047] hover:bg-[#3530478e] transition-all duration-250 cursor-pointer">Edit Rule</button>
+                    <button className="mt-[1rem] w-full bg-[#211e2c67] p-2 py-3 rounded-md border border-[#353047] hover:bg-[#3530478e] transition-all duration-250 cursor-pointer">Edit Rule</button>
 
                 </div>
 

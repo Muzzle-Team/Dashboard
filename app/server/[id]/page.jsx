@@ -33,7 +33,7 @@ export default function Dashboard() {
       </div>
       <hr className="border-[#302e46] mb-4" />
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
         <div className="bg-[#191822]/50 backdrop-blur p-4 sm:p-5 rounded-xl border border-[#2e2b41] flex flex-col justify-between">
           <div className="flex items-start justify-between">
             <div className="flex flex-col">
@@ -148,7 +148,7 @@ export default function Dashboard() {
 
       </div>
 
-      <div className="mt-[2rem] flex flex-col lg:flex-row items-stretch w-full gap-6">
+      <div className="mt-[2rem] flex flex-col xl:flex-row items-stretch w-full gap-6">
         <div className="flex-1 min-w-0">
           <Messages />
         </div>

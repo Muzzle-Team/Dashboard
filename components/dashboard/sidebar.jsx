@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { LogOut, LayoutDashboard, Sparkles } from "lucide-react"
 import { useSidebar } from "@/context/userSidebar";
 import { useState, useTransition, useEffect, useRef } from "react";
+import { FastAverageColor } from 'fast-average-color'
 import Link from "next/link";
 import { useRouter, usePathname } from "next/navigation";
 export default function Sidebar() {
@@ -26,9 +27,12 @@ export default function Sidebar() {
     const [hoveredPosition, setHoveredPosition] = useState(0);
     const touchStartX = useRef(null);
     const touchEndX = useRef(null);
+   
+
+
     const router = useRouter();
     const items = [
-        { id: 1, name: "Marin Chan", members: 16, icon: "https://cdn.discordapp.com/icons/1294072522219978802/12e48a18d32be277c7b1dc8a87ac00b9.png?size=80&quality=lossless" },
+        { id: 1, name: "Marin Chan", members: 16, icon: "https://cdn.discordapp.com/icons/1294072522219978802/bc1544ead4b60b741f4a5f6c69431498.webp" },
         { id: 2, name: "One Piece", members: 120, icon: "https://cdn.discordapp.com/embed/avatars/0.png" },
         { id: 3, name: "Anime Hub", members: 45, icon: "https://cdn.discordapp.com/embed/avatars/0.png" },
         { id: 4, name: "Gaming Zone", members: 200, icon: "https://cdn.discordapp.com/embed/avatars/0.png" },
@@ -82,13 +86,13 @@ export default function Sidebar() {
         <div
             id="sidebar"
             className={`fixed top-0 left-0 bottom-0 h-screen z-40 flex  transform ${isSidebarOpen
-                ? "translate-x-0 md:translate-x-0"
-                : "-translate-x-full md:translate-x-0"
+                ? "translate-x-0 lg:translate-x-0"
+                : "-translate-x-full lg:translate-x-0"
                 } transition-transform duration-300 ease-in-out `}
         >
             <div className="h-full overflow-y-auto hidden-scrollbar w-20 bg-[#111018] mt-[30px] flex flex-col items-center py-4 relative">
                 <div
-                onClick={() => router.push("/dashboard")}
+                    onClick={() => router.push("/dashboard")}
                     className="relative mb-4 z-10 group"
                     onMouseEnter={(e) => {
                         setHovered(-1);
@@ -182,8 +186,29 @@ export default function Sidebar() {
             </AnimatePresence>
 
 
-            <div className="h-full overflow-y-auto hidden-scrollbar w-73 bg-[#111018]  mt-[40px] flex flex-col justify-between items-center py-4 relative border border-[#32304d] border-b-0  rounded-r-xl sm:rounded-r-none sm:rounded-tl-xl">
-                <div className="mb-[6rem] w-[16rem]">
+            <div className="h-full overflow-y-auto hidden-scrollbar w-73 bg-[#111018]  mt-[40px] flex flex-col justify-between items-center relative border border-[#32304d] border-b-0  rounded-r-xl sm:rounded-r-none sm:rounded-tl-xl">
+                <div className="relative w-full">
+                    <div className="relative w-full z-50 h-[9rem] px-[5px]">
+                        <img
+                            
+                            src={`https://cdn.discordapp.com/avatars/618078478755037185/365d1b96e4702864faf909835359ff4b.png?size=1024`}
+                            className="object-cover w-full h-full"
+                            alt="server icon"
+                        />
+                        <div className="absolute inset-0 backdrop-blur-sm bg-black/30" />
+                        <div className="absolute inset-0 flex items-center justify-center">
+                            <h2 className="text-white manrope font-extrabold text-6xl drop-shadow-md">
+                                {(() => {
+                                    const words = 'Rid!'.split(' ')
+                                    if (words.length === 1) return words[0].slice(0, 2)
+                                    return words.map(w => w[0]).join('')
+                                })()}
+                            </h2>
+                        </div>
+                    </div>
+                   
+                </div>
+                <div className="mb-[6rem] w-[16rem] mt-4">
 
 
 

@@ -20,7 +20,7 @@ import {
 
 export const description = "A simple area chart"
 const chartData = [
-    { day: "Sun", balance: 0 },
+    { day: "Sun", balance: 5000 },
     { day: "Mon", balance: 0 },
     { day: "Tue", balance: 0 },
     { day: "Wed", balance: 0 },

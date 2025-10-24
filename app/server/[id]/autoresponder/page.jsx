@@ -134,7 +134,7 @@ export default function Dashboard() {
                             animate={{ opacity: 1, scale: 1, y: 0 }}
                             exit={{ opacity: 0, scale: 0.95, y: 20 }}
                             transition={{ duration: 0.2, ease: "easeOut" }}
-                            className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 md:w-[90%] w-[95%] max-w-2xl border-[#2e2b41] border bg-[#0e0d13] rounded-xl shadow-2xl z-70 max-h-[90vh] flex flex-col overflow-hidden"
+                            className="fixed  left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 md:w-[90%] w-[95%] max-w-2xl border-[#2e2b41] border bg-[#0e0d13] rounded-xl shadow-2xl z-70 max-h-[70vh] flex flex-col overflow-hidden"
                         >
                             {/* Header - Fixed */}
                             <div className="flex items-center justify-between p-6">
@@ -152,7 +152,7 @@ export default function Dashboard() {
                             </div>
 
                             {/* Body - Scrollable */}
-                            <div className="px-6 space-y-5 mb-3 hidden-scrollbar overflow-y-auto flex-1">
+                            <div className="px-6 space-y-5 mb-3 custom-scrollbar overflow-y-auto flex-1">
                                 {/* Trigger Name */}
                                 <div className="md:flex space-y-2 gap-2">
                                     <div className="flex-1">

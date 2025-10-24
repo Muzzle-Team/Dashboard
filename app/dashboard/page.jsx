@@ -46,14 +46,11 @@ export default function Dashboard() {
           <LayoutDashboard className="h-6 w-6" />
           <span>Overview</span>
         </h2>
-        <span className="hidden md:block w-px h-4 bg-[#5b5683]"></span>
-        <span className="text-md text-zinc-400">
-          The Overview page gives you a quick glance at your most important information and activities, all in one place. It's designed to help you stay on top of your account without needing to jump between different sections.
-        </span>
+        
       </div>
       <hr className="border-[#302e46] mb-4" />
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 xl:grid-cols-4 gap-4">
         <div className="bg-[#191822]/50 backdrop-blur p-3 sm:p-4 sm:py-2 rounded-xl border border-[#2e2b41]">
           <div className="flex items-center  gap-2 justify-between sm:gap-3">
 
@@ -128,7 +125,7 @@ export default function Dashboard() {
         </div>
       </div>
 
-      <div className="mt-[2rem] flex flex-col lg:flex-row items-stretch w-full gap-6">
+      <div className="mt-[2rem] flex flex-col xl:flex-row items-stretch w-full gap-6">
         <div className="flex-1 min-w-0">
           <ChartAreaDefault />
         </div>
