@@ -152,8 +152,8 @@ export default function Sidebar() {
                                 alt={item.name}
                                 draggable={false}
                                 className={`w-14 h-14 bg-indigo-700 transition-all duration-300 cursor-pointer select-none ${id == item.id
-                                        ? 'rounded-[35%]'
-                                        : 'rounded-[50%] hover:rounded-[35%]'
+                                    ? 'rounded-[35%]'
+                                    : 'rounded-[50%] hover:rounded-[35%]'
                                     } ${item.isJoined ? '' : 'grayscale brightness-75'}`}
                             />
                         </motion.div>
@@ -548,28 +548,7 @@ export default function Sidebar() {
                                         </div>
                                     </Link>
 
-                                    <Link href={`/server/${id}/colors`} className="group">
-                                        <div
-                                            onClickCapture={() => setActive("colors")}
-                                            className={`relative flex items-center gap-2 h-[3rem] py-2 pl-5 pr-4 rounded-md transition
-              ${active === "colors"
-                                                    ? "bg-indigo-500/50 text-white"
-                                                    : "text-gray-400 hover:bg-indigo-500/20 hover:text-white"
-                                                }
-            `}
-                                        >
-                                            <span
-                                                className={`absolute left-0 top-1/2 -translate-y-1/2 w-[4px] rounded-l-none rounded-md bg-indigo-500 transition-all duration-300
-                ${active === "colors" ? "h-7" : "h-0 group-hover:h-7"}
-              `}
-                                            ></span>
 
-                                            <svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} className="w-6.5 h-6.5" viewBox="0 0 24 24">
-                                                <path fill="currentColor" d="M12 22A10 10 0 0 1 2 12A10 10 0 0 1 12 2c5.5 0 10 4 10 9a6 6 0 0 1-6 6h-1.8c-.3 0-.5.2-.5.5c0 .1.1.2.1.3c.4.5.6 1.1.6 1.7c.1 1.4-1 2.5-2.4 2.5m0-18a8 8 0 0 0-8 8a8 8 0 0 0 8 8c.3 0 .5-.2.5-.5c0-.2-.1-.3-.1-.4c-.4-.5-.6-1-.6-1.6c0-1.4 1.1-2.5 2.5-2.5H16a4 4 0 0 0 4-4c0-3.9-3.6-7-8-7m-5.5 6c.8 0 1.5.7 1.5 1.5S7.3 13 6.5 13S5 12.3 5 11.5S5.7 10 6.5 10m3-4c.8 0 1.5.7 1.5 1.5S10.3 9 9.5 9S8 8.3 8 7.5S8.7 6 9.5 6m5 0c.8 0 1.5.7 1.5 1.5S15.3 9 14.5 9S13 8.3 13 7.5S13.7 6 14.5 6m3 4c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5s-1.5-.7-1.5-1.5s.7-1.5 1.5-1.5"></path>
-                                            </svg>
-                                            <span className="mt-1">Colors</span>
-                                        </div>
-                                    </Link>
 
                                     <Link href={`/server/${id}/reactionroles`} className="group">
                                         <div
@@ -624,11 +603,11 @@ export default function Sidebar() {
                                         </div>
                                     </Link>
 
-                                    <Link href={`/server/${id}/ticket`} className="group">
+                                     <Link href={`/server/${id}/vonline`} className="group">
                                         <div
-                                            onClickCapture={() => setActive("ticket")}
+                                            onClickCapture={() => setActive("vonline")}
                                             className={`relative flex items-center gap-2 h-[3rem] py-2 pl-5 pr-4 rounded-md transition
-              ${active === "ticket"
+              ${active === "vonline"
                                                     ? "bg-indigo-500/50 text-white"
                                                     : "text-gray-400 hover:bg-indigo-500/20 hover:text-white"
                                                 }
@@ -636,7 +615,30 @@ export default function Sidebar() {
                                         >
                                             <span
                                                 className={`absolute left-0 top-1/2 -translate-y-1/2 w-[4px] rounded-l-none rounded-md bg-indigo-500 transition-all duration-300
-                ${active === "ticket" ? "h-7" : "h-0 group-hover:h-7"}
+                ${active === "vonline" ? "h-7" : "h-0 group-hover:h-7"}
+              `}
+                                            ></span>
+
+                                             <svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} className="w-6.5 h-6.5" viewBox="0 0 24 24">
+                                                <path fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 11v3m2.5-11C7.27 3 5.155 3 3.753 4.198q-.3.256-.555.555C2 6.155 2 8.27 2 12.5s0 6.345 1.198 7.747q.256.3.555.555C5.155 22 7.27 22 11.5 22s6.345 0 7.747-1.198q.3-.256.555-.555C21 18.845 21 16.73 21 12.5M12 8v9m3-7v5m-9-3v1m9.388-7.913a3.11 3.11 0 0 0 2.7-2.699c.026-.213.197-.388.412-.388s.386.175.413.388a3.11 3.11 0 0 0 2.699 2.7c.213.026.388.197.388.412s-.175.386-.388.413a3.11 3.11 0 0 0-2.7 2.699c-.026.213-.197.388-.412.388s-.386-.175-.413-.388a3.11 3.11 0 0 0-2.699-2.7C15.175 5.887 15 5.716 15 5.5s.175-.386.388-.413"></path>
+                                            </svg>
+                                            <span className="mt-1">Voice Online</span>
+                                        </div>
+                                    </Link>
+
+                                    <Link href={`/server/${id}/ticket`} onClick={(e) => e.preventDefault()} className="group cursor-not-allowed pointer-events-auto">
+                                        <div
+
+                                            className={`relative flex items-center gap-2 h-[3rem] py-2 pl-5 pr-4 rounded-md transition
+              ${active === "ticket"
+                                                    ? "bg-indigo-500/50 text-white"
+                                                    : "text-gray-400 bg-black opacity-30"
+                                                }
+            `}
+                                        >
+                                            <span
+                                                className={`absolute left-0 top-1/2 -translate-y-1/2 w-[4px] rounded-l-none rounded-md bg-indigo-500 transition-all duration-300
+                ${active === "ticket" ? "h-7" : "h-0 "}
               `}
                                             ></span>
 
@@ -646,9 +648,19 @@ export default function Sidebar() {
                                                     <path fill="currentColor" d="m14.008 19.003l-.75-.002zM14.014 17l.75.002V17zM3.15 18.828l-.53.531zm0-13.656l-.53-.531zm-.197 5.082l-.366.655zm-.942-1.265l-.75-.031zm.942 4.757l-.366-.655zm-.942 1.265l.749-.032zm19.036-4.757l.366.655zm.942-1.265l.75-.031zM20.85 5.172l.53-.531zm.197 8.574l-.366.655zm.942 1.265l.75.031zm-1.139 3.817l.53.531zm1.094-4.496l.654-.366zm0-4.664l.654.366zM2.056 14.332l-.654-.366zm0-4.664l.655-.366zM14.014 7h.75v-.002zm-.008-2.501l-.75.002zm2.522-.48l.02-.75zm.506 15.945l.031.75zm-3.174-.11l-.53-.531zm.898-.849l.006-2.003l-1.5-.004L13.258 19zm.258-2.255c.141 0 .253.114.253.25h1.5c0-.968-.787-1.75-1.753-1.75zm0-1.5c-.966 0-1.752.782-1.752 1.75h1.5c0-.136.111-.25.252-.25zM9.995 4.75h3.51v-1.5h-3.51zm3.013 14.5H9.995v1.5h3.013zm-3.013 0c-1.911 0-3.27-.002-4.3-.14c-1.01-.135-1.591-.389-2.016-.813L2.62 19.36c.75.748 1.702 1.08 2.876 1.238c1.154.155 2.63.153 4.5.153zm0-16c-1.87 0-3.346-.002-4.5.153c-1.174.158-2.125.49-2.875 1.238l1.06 1.062c.424-.424 1.006-.678 2.015-.813c1.03-.138 2.389-.14 4.3-.14zm-7.408 7.659c.386.215.643.624.643 1.091h1.5a2.75 2.75 0 0 0-1.41-2.401zM2.76 9.02c.078-1.856.331-2.732.92-3.318L2.62 4.64C1.59 5.668 1.34 7.08 1.26 8.958zM3.23 12c0 .467-.257.876-.643 1.092l.732 1.31A2.75 2.75 0 0 0 4.73 12zm-1.969 3.042c.08 1.876.33 3.29 1.359 4.317l1.06-1.062c-.589-.586-.842-1.462-.92-3.318zM20.77 12c0-.467.257-.876.643-1.091l-.732-1.31A2.75 2.75 0 0 0 19.27 12zm1.969-3.042c-.08-1.876-.33-3.29-1.359-4.317l-1.06 1.062c.588.586.842 1.462.92 3.318zm-1.326 4.134A1.25 1.25 0 0 1 20.77 12h-1.5c0 1.034.571 1.932 1.411 2.401zm-.173 1.887c-.078 1.856-.331 2.732-.92 3.318l1.06 1.062c1.03-1.027 1.28-2.44 1.359-4.317zm-.559-.578c.284.159.47.263.595.342c.062.039.09.06.098.066c.014.012-.037-.024-.085-.11l1.31-.733a1.1 1.1 0 0 0-.269-.312a2.4 2.4 0 0 0-.254-.18c-.167-.106-.396-.233-.663-.383zm2.058.641c.007-.171.015-.348.009-.496a1.3 1.3 0 0 0-.15-.58l-1.309.732c-.05-.09-.043-.152-.04-.086q.002.04 0 .134l-.009.233zm-1.326-4.133c.267-.15.496-.277.663-.383a3 3 0 0 0 .254-.18a1.1 1.1 0 0 0 .268-.312l-1.309-.732c.048-.087.099-.123.084-.111a1 1 0 0 1-.097.066c-.125.08-.31.183-.595.342zM21.24 9.02l.009.233q.002.094 0 .134c-.003.066-.01.004.04-.086l1.31.732a1.3 1.3 0 0 0 .149-.58a6 6 0 0 0-.01-.496zM2.587 13.09c-.267.15-.496.277-.663.383a2.4 2.4 0 0 0-.254.18a1.1 1.1 0 0 0-.268.312l1.309.732c-.048.087-.099.123-.085.111c.009-.007.036-.027.098-.066c.125-.08.31-.183.595-.342zm.173 1.888l-.009-.233a2 2 0 0 1 0-.134c.003-.066.01-.004-.04.086l-1.31-.732a1.3 1.3 0 0 0-.149.58c-.006.148.002.325.01.496zm.559-5.38c-.284-.159-.47-.263-.595-.342a1 1 0 0 1-.098-.066c-.014-.012.037.024.085.11l-1.31.733c.084.148.195.25.269.312c.08.066.169.126.254.18c.167.106.396.233.663.383zm-2.059-.64c-.007.171-.015.348-.009.496c.007.15.03.367.15.58l1.309-.732c.05.09.043.152.04.086a2 2 0 0 1 0-.134l.009-.233zm13.503-1.96l-.008-2.502l-1.5.005l.008 2.501zm.252.252a.25.25 0 0 1-.252-.25h-1.5c0 .968.786 1.75 1.752 1.75zM15.27 7c0 .136-.112.25-.253.25v1.5c.966 0 1.753-.782 1.753-1.75zm0-2.484V7h1.5V4.516zm1.24.253c2.188.056 3.169.292 3.812.934l1.06-1.062c-1.113-1.11-2.687-1.316-4.834-1.372zm.26-.253c0 .14-.116.256-.26.253l.038-1.5a1.247 1.247 0 0 0-1.278 1.247zm-3.264.234a.25.25 0 0 1-.249-.25l1.5-.004a1.25 1.25 0 0 0-1.25-1.246zm3.56 15.964c1.875-.08 3.288-.33 4.315-1.355l-1.06-1.062c-.586.586-1.464.84-3.318.918zM15.27 17v1.977h1.5V17zm-2.011 2c0 .121 0 .214-.003.293c-.002.08-.006.126-.01.155s-.005.019.006-.01a.4.4 0 0 1 .079-.115l1.059 1.062a1.24 1.24 0 0 0 .342-.733c.027-.197.026-.433.027-.647zm-.25 1.75c.214 0 .45.002.647-.025c.219-.03.498-.105.734-.34l-1.06-1.062a.4.4 0 0 1 .117-.078c.028-.012.038-.01.01-.007a2 2 0 0 1-.156.01c-.08.002-.172.002-.292.002zm3.994-1.535c-.12.005-.213.009-.292.01s-.125 0-.152-.003s-.015-.005.015.007c.037.014.08.04.119.076l-1.038 1.083c.244.234.529.304.757.326c.202.02.44.009.654 0zm-1.733-.238c0 .218-.002.46.026.663c.031.226.112.511.359.748l1.038-1.083c.04.038.066.081.082.117c.012.03.01.04.007.012a2 2 0 0 1-.01-.159c-.002-.08-.002-.175-.002-.298z"></path>
                                                 </g>
                                             </svg>
-                                            <span className="mt-1">Ticket</span>
+                                            <div className="mt-1 flex justify-between items-center gap-19">
+                                                <span>Ticket</span>
+                                                <div className="manrope font-bold bg-[#2e2e2e] text-gray-200 text-[0.8rem] uppercase px-2 rounded-sm">
+                                                    Soon
+                                                </div>
+                                            </div>
+
                                         </div>
                                     </Link>
+
+                                  
+
+
 
                                 </div>
                             </motion.div>
@@ -850,11 +862,11 @@ export default function Sidebar() {
                             >
                                 <div className="flex flex-col space-y-1 py-4 gap-1 pb-4">
 
-                                    <Link href={`/server/${id}/youtube`} className="group">
+                                    <Link href={`/server/${id}/logs`} className="group">
                                         <div
-                                            onClickCapture={() => setActive("youtube")}
+                                            onClickCapture={() => setActive("logs")}
                                             className={`relative flex items-center gap-2 h-[3rem] py-2 pl-5 pr-4 rounded-md transition
-              ${active === "youtube"
+              ${active === "logs"
                                                     ? "bg-indigo-500/50 text-white"
                                                     : "text-gray-400 hover:bg-indigo-500/20 hover:text-white"
                                                 }
@@ -862,7 +874,7 @@ export default function Sidebar() {
                                         >
                                             <span
                                                 className={`absolute left-0 top-1/2 -translate-y-1/2 w-[4px] rounded-l-none rounded-md bg-indigo-500 transition-all duration-300
-                ${active === "youtube" ? "h-7" : "h-0 group-hover:h-7"}
+                ${active === "logs" ? "h-7" : "h-0 group-hover:h-7"}
               `}
                                             ></span>
 

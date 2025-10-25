@@ -10,8 +10,9 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import AuditLogsTable from "@/components/dashboard/server/home_log";
 import { motion, AnimatePresence } from "framer-motion";
-import { HexColorPicker } from "react-colorful";
+import { HexColorPicker, HexAlphaColorPicker, HslaStringColorPicker, RgbaColorPicker , RgbColorPicker    } from "react-colorful";
 import { useRouter } from "next/navigation";
+
 
 export default function Dashboard() {
 
@@ -53,7 +54,7 @@ export default function Dashboard() {
             acc[logName] = {
                 enabled: false,
                 channel: null,
-                color: "#3357FF"
+                color: "#4f39f6"
             };
             return acc;
         }, {})
@@ -218,14 +219,14 @@ export default function Dashboard() {
                                 {openColorPicker === logName && (
                                     <>
                                         <motion.div
-                                            className="fixed inset-0 z-40"
+                                            className="fixed inset-0 z-30"
                                             initial={{ opacity: 0 }}
                                             animate={{ opacity: 1 }}
                                             exit={{ opacity: 0 }}
                                             onClick={() => setOpenColorPicker(null)}
                                         />
                                         <motion.div
-                                            className="absolute z-[9999]  "
+                                            className="absolute z-40 -translate-y-2  "
                                             initial={{ opacity: 0, scale: 0.95, y: -10 }}
                                             animate={{ opacity: 1, scale: 1, y: 0 }}
                                             exit={{ opacity: 0, scale: 0.95, y: -10 }}
