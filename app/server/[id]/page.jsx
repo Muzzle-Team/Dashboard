@@ -22,7 +22,7 @@ export default function Dashboard() {
   const formatted = addCommas("1250000")
 
   return (
-    <Page>
+ <>
 
       <div className="flex flex-col md:flex-row md:items-center gap-1 md:gap-4 mb-4">
         <h2 className="text-white flex space-x-2 font-medium text-lg md:text-xl">
@@ -160,8 +160,7 @@ export default function Dashboard() {
       <div className=" mt-[2rem]"><AuditLogsTable/></div>
 
 
-
-    </Page>
+</>
 
   )
 }

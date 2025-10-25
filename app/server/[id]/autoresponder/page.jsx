@@ -42,7 +42,7 @@ export default function Dashboard() {
     const formatted = addCommas("1250000")
 
     return (
-        <Page>
+        <>
 
             <div className="flex flex-col md:flex-row md:items-center gap-1 md:gap-4 mb-4">
                 <h2 className="text-white flex space-x-2 font-medium text-lg md:text-xl">
@@ -143,7 +143,7 @@ export default function Dashboard() {
                                 </h3>
                                 <button
                                     onClick={() => setIsOpen(false)}
-                                    className="text-[#928ea8] hover:text-white transition-colors"
+                                    className="text-[#928ea8] cursor-pointer hover:text-white transition-colors"
                                 >
                                     <svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} viewBox="0 0 24 24">
                                         <path fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18 6L6 18M6 6l12 12"></path>
@@ -400,7 +400,7 @@ export default function Dashboard() {
             </AnimatePresence>
 
 
-        </Page>
+        </>
 
     )
 }

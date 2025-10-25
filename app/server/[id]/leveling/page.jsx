@@ -48,8 +48,7 @@ export default function Dashboard() {
     const formatted = addCommas("1250000")
 
     return (
-        <Page>
-
+        <>
             <div className="flex flex-col md:flex-row md:items-center gap-1 md:gap-4 mb-4">
                 <h2 className="text-white flex space-x-2 font-medium text-lg md:text-xl">
                     <svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} className="w-6.5 h-6.5" viewBox="0 0 24 24">
@@ -293,7 +292,7 @@ export default function Dashboard() {
                                 className="mt-4 text-[#a29dbb]"
                             >
                                 <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
-                                    <div className="bg-[#22202e6e] mt-4 p-4 sm:p-5 rounded-xl border border-[#2e2b41]">
+                                    <div className="bg-[#1918226e] mt-4 p-4 sm:p-5 rounded-xl border border-[#2e2b41]">
                                         <span className="text-white">Reward No.1</span>
                                         <div>
                                             <label className="block text-md mt-3 manrope text-[#a29dbb] mb-2">
@@ -400,7 +399,7 @@ export default function Dashboard() {
             </div>
 
 
-        </Page>
+      </>
 
     )
 }

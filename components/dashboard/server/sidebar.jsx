@@ -201,10 +201,10 @@ export default function Sidebar() {
 
             <div className="h-full overflow-y-auto hidden-scrollbar w-73 bg-[#111018]  mt-[40px] flex flex-col justify-between items-center relative border border-[#32304d] border-b-0  rounded-r-xl sm:rounded-r-none sm:rounded-tl-xl">
                 <div className="relative w-full">
-                    <div className="relative w-full z-50 h-[9rem] px-[5px]">
+                    <div className="relative w-full z-50 h-[9rem] ">
                         <img
 
-                            src={`https://cdn.discordapp.com/avatars/618078478755037185/365d1b96e4702864faf909835359ff4b.png?size=1024`}
+                            src={`https://cdn.discordapp.com/icons/1294072522219978802/bc1544ead4b60b741f4a5f6c69431498.webp`}
                             className="object-cover w-full h-full"
                             alt="server icon"
                         />

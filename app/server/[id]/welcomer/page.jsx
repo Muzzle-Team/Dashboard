@@ -209,7 +209,7 @@ export default function Dashboard() {
     };
 
     return (
-        <Page>
+        <>
             <div className="flex flex-col md:flex-row md:items-center gap-1 md:gap-4 mb-4">
                 <h2 className="text-white flex space-x-2 font-medium text-lg md:text-xl">
                     <svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} className="w-6.5 h-6.5" viewBox="0 0 24 24">
@@ -231,7 +231,7 @@ export default function Dashboard() {
                     </div>
                     <span className="text-xl">Welcome Setup</span>
                 </div>
-
+                <hr className="border-[#302e46] mt-4  mb-4" />
                 <div className="mt-3 block">
                     <span className="text-[#a29dbb]">Log Channel</span>
                 </div>
@@ -241,7 +241,7 @@ export default function Dashboard() {
                         <input
                             placeholder="Search or select channel"
                             value={search || selected}
-                            
+
                             onClick={() => setOpen(!open)}
                             onChange={(e) => {
                                 setSearch(e.target.value);
@@ -371,6 +371,7 @@ export default function Dashboard() {
                                                 <span className="text-indigo-600 text-lg">[inviter]</span>
                                             </div>
                                             <span className="text-white tfont">Mention the inviter</span>
+                                            <div className=" manrope font-bold bg-[#795a2c] text-[#f6b85b]  text-[0.7rem] uppercase px-2 rounded-sm"> premium </div>
                                         </div>
 
                                         <div className="flex flex-wrap items-center gap-2">
@@ -378,6 +379,7 @@ export default function Dashboard() {
                                                 <span className="text-indigo-600 text-lg">[inviterName]</span>
                                             </div>
                                             <span className="text-white tfont">Inviter's name only</span>
+                                            <div className=" manrope font-bold bg-[#795a2c] text-[#f6b85b]  text-[0.7rem] uppercase px-2 rounded-sm"> premium </div>
                                         </div>
 
                                         <div className="flex flex-wrap items-center gap-2">
@@ -385,6 +387,7 @@ export default function Dashboard() {
                                                 <span className="text-indigo-600 text-lg">[inviteCount]</span>
                                             </div>
                                             <span className="text-white tfont">Inviter's total invites</span>
+                                            <div className=" manrope font-bold bg-[#795a2c] text-[#f6b85b]  text-[0.7rem] uppercase px-2 rounded-sm"> premium </div>
                                         </div>
                                     </div>
                                 </div>
@@ -1505,6 +1508,6 @@ export default function Dashboard() {
                     )}
                 </AnimatePresence>
             </div>
-        </Page>
+       </>
     );
 }
