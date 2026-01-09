@@ -216,7 +216,7 @@ export default function Daily() {
           {stage === "captcha" && (
             <div className="flex justify-center items-center h-full">
               <ReCAPTCHA
-                sitekey="6Le5ktwrAAAAAKxS5RUzLd5YQHSX5R1xhcm72lae"
+                sitekey=""
                 ref={recaptchaRef}
                 onChange={handleCaptchaChange}
               />
