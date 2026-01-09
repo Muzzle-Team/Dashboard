@@ -3,7 +3,7 @@ export async function POST(req) {
     const { token } = await req.json();
     if (!token) return new Response(JSON.stringify({ success: false, error: "Token missing" }), { status: 400 });
   
-    const secret = "6Le5ktwrAAAAADFattJUJnb-UtonC7JKGZviH6Vi";
+    const secret = "";
   
     try {
       const response = await fetch(
